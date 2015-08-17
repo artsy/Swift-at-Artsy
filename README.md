@@ -8,7 +8,7 @@ Pre-requisites: Yosemite
 
 * Beginners
  1. Variables - Strings - If - Loops
- 1. Intro to types / structs/ enums /classes
+ 1. Intro to types / structs/ enums / classes / tuples
  1. Functions, and functions on types
  1. Data Structures ( Deep dive into di cts/arrays )
  1. Type Extensions, Operators ( take examples from eidolon )
