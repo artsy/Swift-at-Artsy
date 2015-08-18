@@ -1,4 +1,4 @@
-Hey! So we're going to be looking at Swift from the perspective of learning programming. This means you get to ask awkward questions and I struggle to verbalise concepts that are the programming wquivilent of muscle memory. It'll be fun!
+Hey! So we're going to be looking at Swift from the perspective of learning programming. This means you get to ask awkward questions and I struggle to verbalise concepts that are the programming equivalent of muscle memory. It'll be fun!
 
 To start of we need to get to a point where we can write any code. We're going to assume that you already have a copy of Xcode 7 installed. With that, let's get started!
 
@@ -40,7 +40,7 @@ You can see the results in the results pane:
 
 ![Results](img/results.png)
 
-In programming, we want to work with abstractions. So let's make our first variable. We're going to make a simple calculator with a variable. What I'd like to do is define a variable called `a` and `b` then add them together to make `c`. This is a trivial example, but it's about foundations.
+In programming, we want to work with abstractions. So let's make our first variable. A variable holds a value that you can refer to later, you can name them (almost) whatever you want. We're going to make a simple calculator with 3  variables. What I'd like to do is define a variable called `a` and `b` then add them together to make `c`. This is a simple example, but it's about foundations.
 
 ```swift
 var a = 2
@@ -49,7 +49,7 @@ var b = 3
 var c = a + b
 ```
 
-Swift defines variables using `var`. While there is no type specified, the variable `a` is a `Int` (basically a round number; 1, 2, 3). Swift is a **strongly-typed language**, even though most of the time you don't actually need to say what type of thing it is. The compiler figures out the type of variables. 
+Variables all have a _type_. Some variables are numbers, and some are strings, and some are other things, too! Numbers are often `Int`, or an integer (basically a round number: 1, 2, 3, -500, 401). Swift is a **strongly-typed language**, which means that types matter a lot. Swift won't let you confuse one type for another. Even though we haven't _told_ Swift what the type of our variables are, the compiler figures it out automatically. 
 
 In Swift, `:` specifies a type. So the following two lines are equivalent.
 
@@ -84,7 +84,23 @@ Let's unpack what we're seeing here. `if [something]` - what's happening here is
 
 It is common to use a left margin / indentation to indicate that something is inside a braced section. It's not enforced though.
 
-We've got one more thing to go over, and that is loops. Let's make a nice simple one, again, this reads like English. For _a_ number in _zero to c_. 
+```swift
+if c > 6 {
+            print("Pretty big c you got there.")
+}
+```
+
+```swift
+if c > 6 { 
+print("Pretty big c you got there.") 
+}
+```
+
+```swift
+if c > 6 { print("Pretty big c you got there.") }
+```
+
+We've got one more thing to go over, and that is loops. Loops repeat a section of code. Let's make a nice simple one, again, this reads like English. For _a_ number in _zero to c_. 
 
 ```swift
 for number in 0...c {

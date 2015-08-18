@@ -1,3 +1,3 @@
-This is the lessons guide for the informed course. You should have some familiarity with programming, like being able to describe object oriented programming.
+This is the lessons guide for the beginners course. It expects no familiarity with programming concepts.
 
 - [Lesson One](Lesson One/)
