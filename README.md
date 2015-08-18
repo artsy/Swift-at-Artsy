@@ -19,3 +19,12 @@ Pre-requisites: Yosemite
   1. lazy lets, computed properties, protocols
   1. operator overloading, protocol extensions ( find some good examples )
   1. error handling, hints towards func prog
+
+### Setup
+
+Getting Xcode betas to a bunch of people is effort. Recommendation: 
+
+* Go to "Users & Groups" in System Preferences
+* Unlock, go to Guest User, tick "Allow guest users to connect to shared folders".
+* Make a folder with Xcode files.
+* Go to "Sharing" in System Preferences, turn on "File Sharing", add a new Shared Folder of your Xcode folder.
