@@ -40,7 +40,11 @@ You can see the results in the results pane:
 
 ![Results](img/results.png)
 
-In programming, we want to work with abstractions. So let's make our first variable. A variable holds a value that you can refer to later, you can name them (almost) whatever you want. We're going to make a simple calculator with 3  variables. What I'd like to do is define a variable called `a` and `b` then add them together to make `c`. This is a simple example, but it's about foundations.
+In programming, we want to work with abstractions. So let's make our first variable. A variable holds a value that you can refer to later, you can name them (almost) whatever you want. 
+
+Variables are themselves an abstract concept, and it's normal for beginners to take time getting comfortable with them. In essence, a variable is a way to store something in a place that you can refer to later. There are a few good reasons to do this, but the most common one is that we need to refer to the same value more than once. 
+
+We're going to make a simple calculator with 3  variables. What I'd like to do is define a variable called `a` and `b` then add them together to make `c`. This is a simple example, but it's about foundations.
 
 ```swift
 var a = 2
@@ -48,6 +52,8 @@ var b = 3
 
 var c = a + b
 ```
+
+In this case, you can see that we're referring back to `a` and `b` as variables, instead of the numbers `2` and `3`. This is a simple example, and with more experience, you'll get more comfortable. 
 
 Variables all have a _type_. Some variables are numbers, and some are strings, and some are other things, too! Numbers are often `Int`, or an integer (basically a round number: 1, 2, 3, -500, 401). Swift is a **strongly-typed language**, which means that types matter a lot. Swift won't let you confuse one type for another. Even though we haven't _told_ Swift what the type of our variables are, the compiler figures it out automatically. 
 
@@ -124,6 +130,8 @@ for x in 0...c {
 }
 ```
 
+For loops, often just called "loops", are foundational to programming. In this example above, we've looped over all the numbers from `0` to `c`, but you can loop over other things, too. Say we're making an app at Artsy that shows a bunch of artworks – we might loop over all the artworks to show them on the screen. 
+
 If you hit the little triangle in the bottom left you can see the printed output!
 
 ----------------
@@ -140,4 +148,28 @@ So let's recap.
 
 * Finally we wrapped up with a `for in` loop.
 
-If you're keen, feel free to keep playing in the playground, or start looking at the Stanford Swift Course: https://www.youtube.com/playlist?list=PLxwBNxx9j4PW4sY-wwBwQos3G6Kn3x6xP
+If you're keen, feel free to keep playing in the playground. Try changing things in the loops to see what happens. Is it what you expected to happen? Why or why not?
+
+What do you think this code would do?
+
+```swift
+for number in 0...15 {
+	if number > 5 {
+		print("This is greater than five")
+	}
+}
+```
+
+What about this?
+
+```swift
+for number in 0...15 {
+	if number > 5 {
+		print("This is greater than five")
+	} else {
+		print("This is less than five")
+	}
+}
+```
+
+You can also look at the free Stanford Swift Course: https://www.youtube.com/playlist?list=PLxwBNxx9j4PW4sY-wwBwQos3G6Kn3x6xP
