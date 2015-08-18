@@ -2,7 +2,7 @@
 
 Scope: Swift only, no iOS dev.
 
-Pre-requisites: Yosemite
+Pre-requisites: Yosemite, Xcode 7
 
 * needs a pre-install session a few days before.
 
