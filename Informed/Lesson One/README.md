@@ -176,7 +176,7 @@ The first `if` branch is executed only if the return value of our function call 
 
 You can even double check this behaviour by ⎇-clicking on the variable. 
 
-![Unwrapped optional](unwrapped.png)
+![Unwrapped optional](img/unwrapped.png)
 
 The `else` statement is executed if the value _was_ `nil`.
 
