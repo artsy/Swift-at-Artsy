@@ -1,6 +1,6 @@
 Hey! So we're going to be looking at Swift from the perspective of learning programming. This means you get to ask awkward questions and I struggle to verbalise concepts that are the programming equivalent of muscle memory. It'll be fun!
 
-To start of we need to get to a point where we can write any code. We're going to assume that you already have a copy of Xcode 7 installed. With that, let's get started!
+To start off we need to get to a point where we can write any code. We're going to assume that you already have a copy of Xcode 7 installed. With that, let's get started!
 
 Open Xcode and you'll get this Welcome dialogue. 
 
