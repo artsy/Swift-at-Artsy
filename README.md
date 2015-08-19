@@ -16,7 +16,7 @@ Pre-requisites: Yosemite, Xcode 7
 * Informed
   1. [Tooling / Language Overview - cursory version of vars/ifs/loops](Informed/Lesson One)
   1. Generics / Data Structures
-  1. lazy lets, computed properties, protocols
+  1. lazy lets, computed properties, protocols (including generic constraints)
   1. operator overloading, protocol extensions ( find some good examples )
   1. error handling, hints towards func prog
 
