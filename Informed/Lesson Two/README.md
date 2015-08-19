@@ -379,7 +379,7 @@ Instead, we need to use `var`.
 ```swift
 var stack = Stack<Int>()
 stack.push(1)
-stack.pop() // returns `
+stack.pop() // returns 1
 ```
 
 You've seen we can do cool things with functions and stucts, but things get wilder with enums!
