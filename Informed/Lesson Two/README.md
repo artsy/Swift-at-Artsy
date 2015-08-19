@@ -25,7 +25,7 @@ struct Artist {
 }
 ```
 
-In this case, the `Artist` struct has one property, `name`, that's a String. It's not an optional, so it can't be `nil`, and it's `let`, so it can't be changed after an instance is created. 
+In this case, the `Artist` struct has one _property_. Properties are values stored within the struct and accessed with dot notation: `instance.property = whatever`. The property we've defined on `Artist` is called `name` and it's a `String` type. It's not an optional, so it can't be `nil`, and it's declared with `let`, so it cannot be changed after an `Artist` instance is created. 
 
 Swift structs can also have functions in them. That might seem strange, but that's OK. We'll cover that shortly. 
 
@@ -50,7 +50,7 @@ struct Artwork {
 }
 ```
 
-It has a function that returns the artwork's artist's name. It seems a bit silly to have that as a function, though, since it's really a computed property. Swift let's us define those, too. 
+It has a function that returns the artwork's artist's name. It seems a bit silly to have that as a function, though, since it's always a computation. But we don't want to add another property like `artistName` to `Artwork`, since that's redundant. Instead, Swift let's us define what's called a _computed property_.
 
 ```swift
 struct Artwork {
@@ -65,7 +65,24 @@ struct Artwork {
 }
 ```
 
-Not bad, but we can do better. Computed properties can have getters and setters, specified with `get` and `set`. But since read-only computed properties are so common, Swift has shorthad syntax. 
+Not bad, but we can do better. Computed properties can have getters and setters, specified with `get` and `set`. Sometimes you want a computed setter, like a temperature struct that stores the temperature in Celcius, but allows users to access the computed Fahrenheit value. You could _set_ the Fahrenheit property and have its setter update the underlying Celcius value.
+
+```swift
+struct Temperature {
+    var celcius: Float
+
+    var fahrenheit: Float {
+        get {
+            return celcius * 9.0/5.0 + 32
+        }
+        set (value) {
+            celcius = (value - 32) * 5.0/9.0
+        }
+    }
+}
+```
+
+But back to our `Artist`! Since read-only computed properties are so common, Swift has shorthad syntax. If a computed property is _only_ read-only, we can omit `get` altogether`. 
 
 ```swift
 var artistName: String {

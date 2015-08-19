@@ -21,6 +21,24 @@ struct Artwork {
     }
 }
 
+struct Temperature {
+    var celcius: Float
+
+    var fahrenheit: Float {
+        get {
+            return celcius * 9.0/5.0 + 32
+        }
+        set (value) {
+            celcius = (value - 32) * 5.0/9.0
+        }
+    }
+}
+
+var t = Temperature(celcius: 20)
+t.fahrenheit
+t.fahrenheit = 70
+t.celcius
+
 class MyClass {
     var property = ""
 }
