@@ -356,7 +356,7 @@ struct Stack<T> {
     }
 
     mutating func pop() -> T? {
-        return isEmpty() ? nil : contents.removeFirst()
+        return isEmpty() ? nil : contents.removeLast()
     }
 
     func isEmpty() -> Bool {
