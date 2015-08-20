@@ -169,7 +169,7 @@ struct Stack<T> {
     }
 
     mutating func pop() -> T? {
-        return isEmpty() ? nil : contents.removeFirst()
+        return isEmpty() ? nil : contents.removeLast()
     }
 
     func isEmpty() -> Bool {
@@ -178,7 +178,7 @@ struct Stack<T> {
 }
 
 var stack = Stack<Int>()
-stack.push(1) // Error!
+stack.push(1)
 stack.pop()
 
 enum AssociatedResult<T> {
