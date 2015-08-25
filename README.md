@@ -8,7 +8,7 @@ Pre-requisites: Yosemite, Xcode 7
 
 * Beginners
  1. [Variables - Strings - If - Loops](Beginners/Lesson One)
- 1. Intro to types / structs/ enums / classes
+ 1. [Bools - If/Else - Algebra - Enums - Structs](Beginners/Lesson Two)
  1. Functions, and functions on types
  1. Data Structures ( Deep dive into di cts/arrays )
  1. Type Extensions, Operators ( take examples from eidolon )
