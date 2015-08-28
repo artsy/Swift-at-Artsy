@@ -114,7 +114,7 @@ for number in 0...c {
 }
 ```
 
-It has the same behavior that we saw in the `if` example. It will run the thing inside the braces as many times as the value of `c`. Each time it will print out `"Hi"`. I think we can expand on this one little bit. The word `number` here is actually a variable, let's make it sound all mathematical and call it `x` instead.
+It has the same behavior that we saw in the `if` example. It will run the thing inside the braces as many times as the value of `c`. Each time it will print out `"hi"`. I think we can expand on this one little bit. The word `number` here is actually a variable, let's make it sound all mathematical and call it `x` instead.
 
 ```swift
 for x in 0...c {
