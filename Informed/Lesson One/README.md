@@ -1,3 +1,5 @@
+# Lesson One
+
 Welcome! This first lesson's goals are to introduce you to the tools used to write Swift. We're also going to go over some language features that are unique to Swift, and some that you may have seen before.
 
 We're going to assume that you already have a copy of Xcode 7 installed. With that, let's get started!
