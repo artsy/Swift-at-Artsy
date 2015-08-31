@@ -2,3 +2,4 @@ This is the lessons guide for the informed course. You should have some familiar
 
 - [Lesson One](Lesson One/)
 - [Lesson Two](Lesson Two/)
+- [Lesson Three](Lesson Three/)
