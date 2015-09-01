@@ -1,4 +1,4 @@
-<!-- Generics / Data Structures -->
+# Lesson Two
 
 Welcome back! [Last time](../Lesson One), we took a look at Swift's syntax and Xcode playgrounds. We touched _very_ briefly on the idea of types. 
 
