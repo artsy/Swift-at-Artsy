@@ -62,4 +62,31 @@ orta.fullName
 
 // Protocols
 
+struct MyInt: BooleanType {
+    let value: Int
 
+    var boolValue: Bool {
+        return value != 0
+    }
+}
+
+let a = MyInt(value: 1)
+let b = MyInt(value: 0)
+
+a && b
+a || b
+!b
+
+struct MyBool<T: BooleanType>: BooleanType {
+    let value: T
+
+    var boolValue: Bool {
+        return value.boolValue
+    }
+}
+
+let x = MyBool(value: true)
+!x
+
+let y = MyBool(value: a)
+!y

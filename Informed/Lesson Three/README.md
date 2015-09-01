@@ -211,7 +211,7 @@ struct Person {
 }
 ```
 
-This is OK – the code will run and work as you expect. 
+This is _OK_ – the code will run and work as you expect. 
 
 ```swift
 var orta = Person(firstName: "Orta", lastName: "Therox")
@@ -248,4 +248,87 @@ More than that is that it allows us to easily inject dependencies when unit test
 
 ## Protocols & Generic Constraints
 
-Protocols are a way to loosely couple code together by indicating that a type conforms to a certain set of functions. 
+Protocols are a way to loosely couple code together by indicating that a type conforms to a certain set of functions. Other languages sometimes call these interfaces. 
+
+Conforming to a protocol is easy. 
+
+```swift
+struct MyInt: BooleanType {
+    let value: Int
+}
+```
+
+This struct conforms to the `BooleanType` protocol. However, this doesn't compile; we haven't implemented the necessary functions. 
+
+```swift
+struct MyInt: BooleanType {
+    let value: Int
+
+    var boolValue: Bool {
+        return value != 0
+    }
+}
+```
+
+Now we're fine. 
+
+But why conform at all? Well, now that we conform to BooleanType, we can use boolean operators and logic on instances of our struct. 
+
+```swift
+let a = MyInt(value: 1)
+let b = MyInt(value: 0)
+
+a && b
+a || b
+!b
+```
+
+Mostly, you'll use protocols to hook into existing Swift features, but they're also useful for loosely coupling types. That's beyond the scope of this lesson, though it's an important concept for writing iOS and OS X apps. 
+
+We can also combine protocols with generics, which is super-fun. We're going to touch on this _briefly_, and return to it next week. 
+
+Here, we see a struct that conforms to `BooleanType` and operate on a generic type `T`, which _also_ must conform to `BooleanType`. 
+
+```swift
+struct MyBool<T: BooleanType>: BooleanType {
+    let value: T
+
+    var boolValue: Bool {
+        return value.boolValue
+    }
+}
+```
+
+`MyBool` will pass through calls to `boolValue` to its underlying value, which we constrain. `T` _must_ conform to `BooleanType`, or you'll get a compiler error. 
+
+```swift
+MyBool(value: "what is this???") // Error!
+```
+
+We can now use and reason about `MyBool` instances with the same boolean logic as `MyInt`, since they both conform to `BooleanType`. 
+
+```swift
+struct MyBool<T: BooleanType>: BooleanType {
+    let value: T
+
+    var boolValue: Bool {
+        return value.boolValue
+    }
+}
+
+let x = MyBool(value: true)
+!x
+
+let y = MyBool(value: MyInt(value: 1))
+!y
+```
+
+Protocols and generics get _way_ more powerful when you combine other Swift features like operator overloading and protocol extensions, which we'll cover soon. 
+
+----------------
+
+We've seen a lot in this lesson, mostly abstract concepts. Try playing around with protocols – how could you create your own? Why would that be useful? What other uses could you see for lazy computed values using closures? Could you combine them with protocols somehow, like a lazy property whose type is defined as a generic conforming to a protocol? 
+
+Until next time!
+
+![Until next time!](http://media0.giphy.com/media/W0crByKlXhLlC/giphy.gif)
