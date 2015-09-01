@@ -58,7 +58,7 @@ Neat!
 
 But that can be defined as a function just as easily as a closure. What benefit do closures have? 
 
-Well, the thing is that closures and functions are pretty much _the same thing_. The benefit of closures is that you can declare them _inline_ and not refer to functions that are declared far away. We'll see more of that momentarily.
+Well, the thing is that closures and functions are pretty much _the same thing_. We can actually [define a function within another function](https://github.com/artsy/eidolon/blob/f22a7a0d5b338e8d934f0d4fdca2de51d07e367f/Kiosk/Sale%20Artwork%20Details/SaleArtworkDetailsViewController.swift#L76-L98) instead of a closure. However, the benefit of closures is that you can declare them _inline_. We'll see more of that momentarily.
 
 Often times, closures are used to execute code more than once. Take the following example. 
 
