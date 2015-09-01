@@ -12,11 +12,11 @@ So the main topic we're going to cover today is expanding our concepts of `struc
 
 ### Schools of Thought
 
-Like the Art world there are schools of thought among craftspeople. Programming has existed for about 60 years and has migrated from rotating some cogs in turing's machine, to punch cards, to magnetic tape and finally to it's current form of text. Since then people have cared more for the abstractions of how code _should_ be formatted than the underlying medium to transmit the information.
+Like the Art world there are schools of thought among craftspeople. Programming has existed for about 60 years and has migrated from rotating some cogs in Alan Turing's Enigma machine, to punch cards, to Grace Hopper's magnetic tape and finally to it's current form of text. Since then people have cared more for the abstractions of how code _should_ be formatted than the underlying medium to transmit the information.
 
 We're going to concentrate on Object Oriented Programming. If any school of thought "won" it's that. It's ubiquitouly used in almost all major programming languages as a way of encapusulating concepts as langiage features. We've already done some Object Oriented Programming last week. It's got a low barrier to entry, and tends to gel well to how people thnk about the world.
 
-Note, there are, like, a million schools of thought, called methodologies or programming paradigms. None are "right", all are equally interesting and valid. For example the creators of Swift said that they believe that swift is a Protocol Oriented Programming language, Ash is a proponent of Functional Reactive Programming ( he's done a [great beginner-level](https://realm.io/news/altconf-ash-furrow-functional-reactive-swift/) talk on it, it might go a bit over your heads but it's maybe worth a look for homework. ) These are different approaches to the same problem and are all equally worth looking at.
+Note, there are, like, a million schools of thought, called methodologies or programming paradigms. None are "right", all are equally interesting and valid. For example the creators of Swift said that they believe that swift is a Protocol Oriented Programming language, Ash is a proponent of Functional Reactive Programming ( he's done a [great beginner-level](https://realm.io/news/altconf-ash-furrow-functional-reactive-swift/) talk on it, it might go a bit over your heads but it's maybe worth a look for homework. ) These are different approaches to the same problem and are [all equally worth looking at](https://twitter.com/dbgrandi/status/508329463990734848).
 
 ### wOOP
 
@@ -24,9 +24,9 @@ Let's look at what we did last week with a struct:
 
 ``` swift
 struct Artwork {
-    var name:String;
-    var medium: String;
-    var availability:ArtworkAvailablility;
+    var name: String
+    var medium: String
+    var availability: ArtworkAvailablility
 }
 ```
 
@@ -51,11 +51,12 @@ Similar to when we created a struct, this is a declaration of something, it is n
 * `()` says that we have no inputs to the function
 * `{ .. }` is the code that is going to be ran
 
+
 > *Note*: another take on the metaphors for functions was provided by Chris Eidhof on [twitter](https://twitter.com/chriseidhof/status/638698203257438208):
 
-> it’s like learning words: once you have extended the vocabulary, you can just use that word (or function).
-> wrong abstraction level makes things incomprehensible. For example: during a soccer, you just want to shout: kick me the ball.
-> too much abstraction (let's win) won't help, too little (bend your leg back, move your foot towards the ball) won't help either
+> * it’s like learning words: once you have extended the vocabulary, you can just use that word (or function).
+* wrong abstraction level makes things incomprehensible. For example: during a soccer, you just want to shout: kick me the ball.
+* too much abstraction (let's win) won't help, too little (bend your leg back, move your foot towards the ball) won't help either
 
 Alright. So we've declared that a function exists. We want to be able to use it. We can use it by writing it's name, and adding braces.
 
@@ -92,7 +93,7 @@ Nothing too odd here, we use commas to separate the different inputs. The odd bi
 printArtworkSubtitle("Untitled #23", artworkDate: "1985")
 ```
 
-Calling the function also is a comma separated list, but after the 1st thing in the list we write the name of what the variable is going to be. This is different to most languages, which would write: `printArtworkSubtitle("Untitled #23", "1985")`. We do this to make it easy to know what all of the inputs stand for. It's about making it easier to read. We call the commas separated list of things going in to a function the "function's parameters" and the named ones a "labeled parameter."
+Calling the function also is a comma separated list, but after the 1st thing in the list we write the name of what the variable is going to be. This is different to most languages, which would write: `printArtworkSubtitle("Untitled #23", "1985")`. Swift duses labels for things to make it easy to know what all of the inputs stand for. It's about making it easier to read. We call the commas separated list of things going in to a function the "function's parameters" and the named ones a "labeled parameter."
 
 Knowing what to put in a functions parameters is basically a skill you learn over the years, but as I've done it for years we'll skip to what I want. I know that both of those bits of information can be found on an Artwork. So rather than providing two parameters, we could provide just one. Less, in general, is better. There's nuance there though. To do this we need to include a date string on the Artwork Type.
 
