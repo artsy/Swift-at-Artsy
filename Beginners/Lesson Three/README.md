@@ -34,7 +34,7 @@ What we did here was we created a blueprint to describe what we think an Artwork
 
 ### Keepin' It Functional
 
-So far we've cared about variables. Very, very often there's a need to perform common actions within your code. Think of it as being similar to words, you have a base vocabulary but then as you learn of a new word it encapsulates an new idea in a way that you can just that word to refer to an idea. 
+So far we've cared about variables. Very, very often there's a need to perform common actions within your code. Think of it as being similar to words, you have a base vocabulary but then as you learn of a new word it encapsulates an new idea in a way that you can just that word to refer to an idea.
 
 For example, the concept of "the realization that each random passerby is living a life as vivid and complex as your own" is a lot to say, then when you understand that the word for this concept, "Sonder" exists, there is a single word concept that represents an idea. Functions are a bit like this. We're going to start small, so I'm afriad this example will be a bit contrived, but don't worry, we're going to build it into a simplified version of something [from Eidolon](https://github.com/artsy/eidolon/blob/master/Kiosk/App/Models/Artwork.swift#L111)!
 
@@ -87,7 +87,7 @@ func printArtworkSubtitle(artworkName: String, artworkDate: String) {
 }
 ```
 
-Nothing too odd here, we use commas to separate the different inputs. The odd bit is actually in how we call it. 
+Nothing too odd here, we use commas to separate the different inputs. The odd bit is actually in how we call it.
 
 ``` swift
 printArtworkSubtitle("Untitled #23", artworkDate: "1985")
@@ -117,7 +117,7 @@ func printArtworkSubtitle(artwork: Artwork) {
 
 Now, we can create an Artwork. We're going to start trying to represent real data. So we're gonna use my favourite artist, [Glenn Brown](https://www.artsy.net/artist/glenn-brown)
 
-``` swift 
+``` swift
 // https://www.artsy.net/artwork/glenn-brown-death-disco
 
 var disco = Artwork(name: "Death Disco", medium: "Oil on Panel", availability: .NotForSale, date: "2004")
@@ -129,7 +129,7 @@ OK, great. So let's print the subtitle for the artwork.
 printArtworkSubtitle(disco)
 ```
 
-Let's recap. We've created a function that has an input of an Artwork type. This function looks inside the artwork to print out it's name, and it's date. This means whenever we want to print an artworks subtitle we can do so really easy, and very importantly, consistently. 
+Let's recap. We've created a function that has an input of an Artwork type. This function looks inside the artwork to print out it's name, and it's date. This means whenever we want to print an artworks subtitle we can do so really easy, and very importantly, consistently.
 
 ### WhOOPs
 
@@ -171,7 +171,7 @@ struct Artwork {
 }
 ```
 
-So what we have done is added some behavior to our Artwork type. 
+So what we have done is added some behavior to our Artwork type.
 
 ### Overview
 

@@ -46,7 +46,7 @@ The J.Paul Getty Museum, LA
 	[                                     ]
 	---------------------------------------
 	Defender Argo, 1910
-	
+
 	---------------------------------------
 	[                                     ]
 	[                                     ]
@@ -55,12 +55,12 @@ The J.Paul Getty Museum, LA
 	[                                     ]
 	---------------------------------------
 	Anthony & Scoville, 1910
-	
+
 ```
 
 #### Xcode console
 
-The Xcode console is a tool at the bottom of the playground, when you use `print` it will send that text to that logger section. You can access it either by pressing `cmd + shift + y` together or tapping the little square in the bottom left. 
+The Xcode console is a tool at the bottom of the playground, when you use `print` it will send that text to that logger section. You can access it either by pressing `cmd + shift + y` together or tapping the little square in the bottom left.
 
 ![images/console.png](images/console.png)
 
@@ -104,7 +104,7 @@ struct Show {
     var name: String
     var openingDate: NSDate
     var closingDate: NSDate
-    
+
     func drawInstallationImage() {
 		print("----------------------------------------------")
 		print("")
@@ -223,11 +223,6 @@ struct Artwork {
     var medium: String
     var availability: String
     var date: String
-
-    func printArtworkSubtitle(artwork: Artwork) {
-        print(artwork.name)
-        print(artwork.date)
-    }
 }
 ```
 
@@ -267,21 +262,21 @@ It's only going to need a `Show`. We'll use it to hold functions. Let's make a `
 ``` swift
 struct ShowPage {
 	var show: Show
-	
+
 	func drawPage() {
 		// do nothing
 	}
 }
 ```
 
-Great. Let's make one at the bottom of our playground. Replacing 
+Great. Let's make one at the bottom of our playground. Replacing
 
 ``` swift
 show.drawInstallationImage()
 show.drawShowRange()
 ```
 
-with 
+with
 
 ``` swift
 var showPage = ShowPage(show: show)
@@ -293,7 +288,7 @@ This removes all the console output, that's ok. We're going to start building it
 ``` swift
 struct ShowPage {
 	[...]
-	
+
 	func drawPage() {
 		self.show.drawInstallationImage()
 	}
@@ -307,7 +302,7 @@ Give the `ShowPage` a function to draw the share button`
 ``` swift
 struct ShowPage {
 	[...]
-	
+
 	func drawShareButton() {
 		print("                                     [ ^ ]")
 	}
@@ -319,7 +314,7 @@ Then call it from the `drawPage` function via `self.drawSharePage()`. Awesome. N
 ``` swift
 struct ShowPage {
 	[...]
-	
+
 	func drawPartnerCallToAction() {
 		print("\(self.show.partner.name)          [ FOLLOW GALLERY ]")
 	}
@@ -331,10 +326,10 @@ and call that from the `drawPage` with `self.drawPartnerCallToAction()`. By this
 ``` swift
 struct ShowPage {
 	[...]
-	
+
 	func drawPage() {
 		self.show.drawInstallationImage()
-		
+
 	}
 }
 ```
@@ -354,7 +349,7 @@ Yossi Milo Gallery          [ FOLLOW GALLERY ]
 ```
 
 Awesome. Next up, we want to print the show name. Append `print(self.show.name)` to the end of your `drawShow` function. The show availability date can be done with `self.show.drawShowRange()`. Finally to wrap up this section we want to add the partner's location. Let's quickly go add this in.
- 
+
 ``` swift
 struct Show {
     var name: String
@@ -369,7 +364,7 @@ struct Show {
 
 Note that the order is important. I put it next to name, as they feel closely linked, this means we have to add the location to the `Show(` call in the same place. This means our variable looks like:
 
-``` swift 
+``` swift
 var show = Show(name: "Light, Paper, Process: Reinventing Photography", location: "The J.Paul Getty Museum, LA", openingDate: startDate, closingDate: endDate, partner: partner, artworks: [defender, burke])
 ```
 
@@ -426,12 +421,12 @@ struct Show {
 	[...]
     func drawPage() {
 		[...]
-		
+
 		for artwork in self.show.artworks {
 			print("	---------------------------------------")
-			
+
 			// draw the middle
-			
+
 			print("	---------------------------------------")
 		   print(artwork.name)
 		}
@@ -441,7 +436,7 @@ struct Show {
 
 ```
 
-Now we want to figure out this "draw the middle bit". We want to draw `x` amount of lines, that correspond to the artwork's height. So let's use another for loop. This time using a range of from `0` to the artwork's height. 
+Now we want to figure out this "draw the middle bit". We want to draw `x` amount of lines, that correspond to the artwork's height. So let's use another for loop. This time using a range of from `0` to the artwork's height.
 
 ``` swift
 	for _ in 0 ..< artwork.height {

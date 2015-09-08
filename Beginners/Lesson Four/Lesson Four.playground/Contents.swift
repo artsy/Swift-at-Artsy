@@ -12,11 +12,6 @@ struct Artwork {
     var availability: String
     var date: String
     var height: Int
-
-    func printArtworkSubtitle(artwork: Artwork) {
-        print(artwork.name)
-        print(artwork.date)
-    }
 }
 
 struct Show {
