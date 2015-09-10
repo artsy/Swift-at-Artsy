@@ -36,7 +36,7 @@ What we did here was we created a blueprint to describe what we think an Artwork
 
 So far we've cared about variables. Very, very often there's a need to perform common actions within your code. Think of it as being similar to words, you have a base vocabulary but then as you learn of a new word it encapsulates an new idea in a way that you can just that word to refer to an idea.
 
-For example, the concept of "the realization that each random passerby is living a life as vivid and complex as your own" is a lot to say, then when you understand that the word for this concept, "Sonder" exists, there is a single word concept that represents an idea. Functions are a bit like this. We're going to start small, so I'm afriad this example will be a bit contrived, but don't worry, we're going to build it into a simplified version of something [from Eidolon](https://github.com/artsy/eidolon/blob/master/Kiosk/App/Models/Artwork.swift#L111)!
+For example, the concept of "the realization that each random passerby is living a life as vivid and complex as your own" is a lot to say, then when you understand that the word for this concept, "Sonder" exists, there is a single word concept that represents an idea. Functions are a bit like this. We're going to start small, so I'm afraid this example will be a bit contrived, but don't worry, we're going to build it into a simplified version of something [from Eidolon](https://github.com/artsy/eidolon/blob/master/Kiosk/App/Models/Artwork.swift#L111)!
 
 ``` swift
 func printArtworkSubtitle() {
@@ -72,7 +72,7 @@ func printArtworkSubtitle(artworkName: String) {
 }
 ```
 
-We've said that we're going to have a variable inside the function's braces called `artworkName`. We then `print`'d it. We need to make a corrosponding change in how we call the function. Now we call it by doing:
+We've said that we're going to have a variable inside the function's braces called `artworkName`. We then `print`'d it. We need to make a corresponding change in how we call the function. Now we call it by doing:
 
 ``` swift
 printArtworkSubtitle("Untitled #23")
@@ -93,7 +93,7 @@ Nothing too odd here, we use commas to separate the different inputs. The odd bi
 printArtworkSubtitle("Untitled #23", artworkDate: "1985")
 ```
 
-Calling the function also is a comma separated list, but after the 1st thing in the list we write the name of what the variable is going to be. This is different to most languages, which would write: `printArtworkSubtitle("Untitled #23", "1985")`. Swift duses labels for things to make it easy to know what all of the inputs stand for. It's about making it easier to read. We call the commas separated list of things going in to a function the "function's parameters" and the named ones a "labeled parameter."
+Calling the function also is a comma separated list, but after the 1st thing in the list we write the name of what the variable is going to be. This is different to most languages, which would write: `printArtworkSubtitle("Untitled #23", "1985")`. Swift uses labels for things to make it easy to know what all of the inputs stand for. It's about making it easier to read. We call the commas separated list of things going in to a function the "function's parameters" and the named ones a "labeled parameter."
 
 Knowing what to put in a functions parameters is basically a skill you learn over the years, but as I've done it for years we'll skip to what I want. I know that both of those bits of information can be found on an Artwork. So rather than providing two parameters, we could provide just one. Less, in general, is better. There's nuance there though. To do this we need to include a date string on the Artwork Type.
 
@@ -133,7 +133,7 @@ Let's recap. We've created a function that has an input of an Artwork type. This
 
 ### WhOOPs
 
-So let's get back to our `struct` Artwork. We were talking about how it contains variables. Well, they can also contain functions too. From my perspective, it is the job of the Artwork to decribe itself. So we're going to move the `printArtworkSubtitle` function into the Artwork struct.
+So let's get back to our `struct` Artwork. We were talking about how it contains variables. Well, they can also contain functions too. From my perspective, it is the job of the Artwork to describe itself. So we're going to move the `printArtworkSubtitle` function into the Artwork struct.
 
 ``` swift
 struct Artwork {

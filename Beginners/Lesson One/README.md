@@ -72,7 +72,7 @@ var myString: String = 1
 
 Swift will complain and say that `'Int' is not convertible to 'String'`. This is Swift's compile-time type checking. It prevents bugs from happening in apps at runtime by giving you errors before-hand. Swift's primary goal is safety against crashes in apps. 
 
-When we're writing code, very often we want to print out some useful information for someone to read. We're going to use this to show that some of our code is running. So lets add a print statment saying what the value of `c` is:
+When we're writing code, very often we want to print out some useful information for someone to read. We're going to use this to show that some of our code is running. So lets add a print statement saying what the value of `c` is:
 
 ```swift
 print(c)
