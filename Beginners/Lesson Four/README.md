@@ -253,7 +253,7 @@ var show = Show(name: "Light, Paper, Process: Reinventing Photography", openingD
 
 So we have put the two artwork objects created above, `defender` and `burke` in to the Show as an array using `[defender, burke]`.
 
-OK, that's everything we need from the `Show`'s perspective. Let's devote some time to improving the our output.
+OK, that's everything we need from the `Show`'s perspective. Let's devote some time to improving the output.
 
 Let's think in objects. We want an object that represents the Show Page. This is the object that we can use to show things like the share button, or the follow gallery button. It is a higher level of abstraction above the Artwork. We're now dealing with a pure abstraction.
 
