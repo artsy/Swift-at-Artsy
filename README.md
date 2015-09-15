@@ -18,7 +18,7 @@ Pre-requisites: Yosemite, Xcode 7
   1. [Generics / Data Structures](Informed/Lesson Two)
   1. [lazy lets, computed properties, closures, protocols (including generic constraints)](Informed/Lesson Three)
   1. [Operator overloading, extensions, and protocol extensions](Informed/Lesson Four)
-  1. error handling, hints towards func prog
+  1. [Error handling, hints towards functional programming](Informed/Lesson Five)
 
 ### Setup
 
