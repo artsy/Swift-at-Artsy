@@ -12,7 +12,13 @@ However, just because iOS/OS X developers _can_ now `throw` things all over the 
 
 ![The Goldblum](http://media-cache-ak0.pinimg.com/736x/e8/f6/85/e8f68586c05e9c608bf08efa1daeb752.jpg)
 
-In order to keep things under control, reduce superfluous use of `throw`, and for compile-time safety, a function **must** be marked as `throws` in order to `throw` something. This lets the compiler verify if code that calls the throwing function handle the error. Super-cool!
+A function that throws errors must explicitly be marked as `throws`, otherwise you'll get a compiler error. This serves three purposes:
+
+- Keep mental overhead to a minimum.
+- Avoid overuse of `throw`.
+- Compile-time safety.
+
+Forcing functions to be marked as `throws` lets the compiler verify that the invoking code handle the error somehow. Super-cool!
 
 Another difference between exceptions and Swift's... whatever it's called is that you can throw any type, as long as it conforms to the `ErrorType` protocol. What's in that protocol? Nothing!
 
