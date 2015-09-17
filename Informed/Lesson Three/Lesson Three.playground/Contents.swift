@@ -1,6 +1,6 @@
 //: # Lesson Three
 //: 
-//: Welcome back! [In the previous lesson](https://: github.com/orta/Swift-at-Artsy/tree/master/Informed/Lesson%20Two), we took a look through _a lot_ of stuff. We covered structs and classes, including the differences between the two. We learnt that structs are value types and classes are reference types, and how this affects Swift constant references declared with `let`. We also took a look at Swift enums, associated values on enums, and tuples. Finally, we looked at generics and got an idea of how they let us write abstract data structures.
+//: Welcome back! [In the previous lesson](https://github.com/orta/Swift-at-Artsy/tree/master/Informed/Lesson%20Two), we took a look through _a lot_ of stuff. We covered structs and classes, including the differences between the two. We learnt that structs are value types and classes are reference types, and how this affects Swift constant references declared with `let`. We also took a look at Swift enums, associated values on enums, and tuples. Finally, we looked at generics and got an idea of how they let us write abstract data structures.
 //: 
 //: This time, we're going to take a look at some of the cool higher order stuff Swift lets us do. We're going to look at closures and treating code as data, then look at lazily-loading properties for efficiency and style, and wrap up with protocols. We'll even briefly touch on generics.
 //: 
@@ -43,7 +43,7 @@ double("hi!")
 //: 
 //: But that can be defined as a function just as easily as a closure. What benefit do closures have?
 //: 
-//: Well, the thing is that closures and functions are pretty much _the same thing_. We can actually [define a function within another function](https://: github.com/artsy/eidolon/blob/f22a7a0d5b338e8d934f0d4fdca2de51d07e367f/Kiosk/Sale%20Artwork%20Details/SaleArtworkDetailsViewController.swift#L76-L98) instead of a closure. However, the benefit of closures is that you can declare them _inline_. We'll see more of that momentarily.
+//: Well, the thing is that closures and functions are pretty much _the same thing_. We can actually [define a function within another function](https://github.com/artsy/eidolon/blob/f22a7a0d5b338e8d934f0d4fdca2de51d07e367f/Kiosk/Sale%20Artwork%20Details/SaleArtworkDetailsViewController.swift#L76-L98) instead of a closure. However, the benefit of closures is that you can declare them _inline_. We'll see more of that momentarily.
 //: 
 //: Often times, closures are used to execute code more than once. Take the following example.
 let range = 0..<10
@@ -217,4 +217,4 @@ let y = MyBool(value: MyInt(value: 1))
 //: 
 //: Until next time!
 //: 
-//: ![Until next time!](http://: media0.giphy.com/media/W0crByKlXhLlC/giphy.gif)
+//: ![Until next time!](http://media0.giphy.com/media/W0crByKlXhLlC/giphy.gif)

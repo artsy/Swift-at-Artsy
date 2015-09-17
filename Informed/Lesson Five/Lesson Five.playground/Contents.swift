@@ -10,7 +10,7 @@
 //: 
 //: However, just because iOS/OS X developers _can_ now `throw` things all over the place doesn't mean we _should_.
 //: 
-//: ![The Goldblum](http://: media-cache-ak0.pinimg.com/736x/e8/f6/85/e8f68586c05e9c608bf08efa1daeb752.jpg)
+//: ![The Goldblum](http://media-cache-ak0.pinimg.com/736x/e8/f6/85/e8f68586c05e9c608bf08efa1daeb752.jpg)
 //: 
 //: A function that throws errors must explicitly be marked as `throws`, otherwise you'll get a compiler error. This serves three purposes:
 //: 
@@ -282,12 +282,12 @@ input.filter(contains("@"))
 //}
 //: This `contains` function is semantically identical to the previous one, but without the extra indentation and complicated signature. Nice.
 //: 
-//: That's all the time we really have to talk about functional programming – it's an exciting topic, and I'd highly recommend you [go buy this book](https://: www.objc.io/books/fpinswift/) if you'd like to learn more!
+//: That's all the time we really have to talk about functional programming – it's an exciting topic, and I'd highly recommend you [go buy this book](https://www.objc.io/books/fpinswift/) if you'd like to learn more!
 //: 
 //: ----------------
 //: 
 //: That's everything, folks! I hope you've enjoyed this learning process. It's been fun and rewarding to write and instruct this course.
 //: 
-//: ![Bye bye!](http://: media3.giphy.com/media/WvaQl1OsPvkZO/giphy.gif)
+//: ![Bye bye!](http://media3.giphy.com/media/WvaQl1OsPvkZO/giphy.gif)
 //: 
-//: If you have questions, [open an issue](https://: github.com/orta/Swift-at-Artsy/issues/new) and we'll get back to you.
+//: If you have questions, [open an issue](https://github.com/orta/Swift-at-Artsy/issues/new) and we'll get back to you.

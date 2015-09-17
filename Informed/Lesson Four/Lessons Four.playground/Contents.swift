@@ -10,7 +10,7 @@
 //: 
 //: Like it or not, operator overloading exists in Swift. In fact, operators are defined as simple functions, which makes `[2,1,3].sort(<)` possible. `<` is an operator, but it's also a function, which means it can be treated as a closure. Neat!
 //: 
-//: Operators are _really_ easy to define. If you're defining a _new_ operator, you should define its type and precedence. This example comes from [Nimble](https://: github.com/Quick/Nimble/blob/8baefcc94bc2b58b7be3cd9ebfc3984ea5c8b87e/Nimble/Matchers/BeCloseTo.swift#L95), a tool we actually use for writing unit tests.
+//: Operators are _really_ easy to define. If you're defining a _new_ operator, you should define its type and precedence. This example comes from [Nimble](https://github.com/Quick/Nimble/blob/8baefcc94bc2b58b7be3cd9ebfc3984ea5c8b87e/Nimble/Matchers/BeCloseTo.swift#L95), a tool we actually use for writing unit tests.
 infix operator ≈ {
 associativity none
 precedence 130
@@ -41,13 +41,13 @@ func +<T>(lhs: T, rhs: [T]) -> [T] {
 }
 //: Boom. Now you can add elements to arrays no matter what their type.
 //: 
-//: There are lots of great uses of operator overloading, and then there's [this one](https://: github.com/ashfurrow/Nimble-Snapshots/blob/890a9a9349adc720c3acfeb6a3de041cb787613b/PrettySyntax.swift#L27) that we actually use in our app:
+//: There are lots of great uses of operator overloading, and then there's [this one](https://github.com/ashfurrow/Nimble-Snapshots/blob/890a9a9349adc720c3acfeb6a3de041cb787613b/PrettySyntax.swift#L27) that we actually use in our app:
 //public func 📷(snapshottable: Snapshotable) {
 //  expect(snapshottable).to(recordSnapshot())
 //}
 //: It's used to record snapshots of view and things. Still pretty cool, though.
 //: 
-//: Another useful example is to abstract something away inside an existing operator. For example, we use an automatically generated enum of Strings to identify something called a _segue_. A lot of the time, we need to see if a segue we are given matches a particular segue identifier's `rawValue`. We do [this](https://: github.com/artsy/eidolon/blob/f22a7a0d5b338e8d934f0d4fdca2de51d07e367f/Kiosk/App/UIStoryboardSegueExtensions.swift#L6-L8) once:
+//: Another useful example is to abstract something away inside an existing operator. For example, we use an automatically generated enum of Strings to identify something called a _segue_. A lot of the time, we need to see if a segue we are given matches a particular segue identifier's `rawValue`. We do [this](https://github.com/artsy/eidolon/blob/f22a7a0d5b338e8d934f0d4fdca2de51d07e367f/Kiosk/App/UIStoryboardSegueExtensions.swift#L6-L8) once:
 //func ==(lhs: UIStoryboardSegue, rhs: SegueIdentifier) -> Bool {
 //  return lhs.identifier == rhs.rawValue
 //}
@@ -56,14 +56,14 @@ func +<T>(lhs: T, rhs: [T]) -> [T] {
 //  let nextViewController = segue.destinationViewController as! LoadingViewController
 //  nextViewController.placingBid = placingBid
 //}
-//: ...we can do [this](https://: github.com/artsy/eidolon/blob/720b6eae23e68d6de7ad6ed7c05d3480c226716f/Kiosk/Bid%20Fulfillment/RegisterViewController.swift#L71-L74)...
+//: ...we can do [this](https://github.com/artsy/eidolon/blob/720b6eae23e68d6de7ad6ed7c05d3480c226716f/Kiosk/Bid%20Fulfillment/RegisterViewController.swift#L71-L74)...
 //if segue == .ShowLoadingView {
 //  let nextViewController = segue.destinationViewController as! LoadingViewController
 //  nextViewController.placingBid = placingBid
 //}
 //: Which is much nicer.
 //: 
-//: Nimble also uses the generic constraints we saw last time in [its operators](https://: github.com/Quick/Nimble/blob/c3b755106ceb154c2512e4cee8ba5df9d3ad39af/Nimble/Matchers/Equal.swift#L102-L104):
+//: Nimble also uses the generic constraints we saw last time in [its operators](https://github.com/Quick/Nimble/blob/c3b755106ceb154c2512e4cee8ba5df9d3ad39af/Nimble/Matchers/Equal.swift#L102-L104):
 //public func ==<T: Equatable>(lhs: Expectation<T>, rhs: T?) {
 //  lhs.to(equal(rhs))
 //}
@@ -104,7 +104,7 @@ extension Occupiable {
 }
 //: Cool, now whenever you want to add conformance to the `Occupiable` protocol, you only need to define _one_ variable instead of two.
 //: 
-//: Recall our `Stack` from [Lesson Two](https://: github.com/orta/Swift-at-Artsy/tree/master/Informed/Lesson%20Two). We can extend it to include an `isEmpty` variable.
+//: Recall our `Stack` from [Lesson Two](https://github.com/orta/Swift-at-Artsy/tree/master/Informed/Lesson%20Two). We can extend it to include an `isEmpty` variable.
 // Basic definition
 struct Stack<T> {
   private var contents = Array<T>()
@@ -160,7 +160,7 @@ let optionalString: String? = "hiya"
 if (optionalString ?? "").isEmpty {
   // optionalString is empty or nil
 }
-//: I thought it would be super cool to extend the `Optional` type to let me use `isEmpty` on optional strings. [This implementation](https://: github.com/artsy/eidolon/blob/739dee0b2d1fdb4e3a6a5a409cc8792b5addb9a3/Kiosk/App/SwiftExtensions.swift#L43-L56) is currently in the production app.
+//: I thought it would be super cool to extend the `Optional` type to let me use `isEmpty` on optional strings. [This implementation](https://github.com/artsy/eidolon/blob/739dee0b2d1fdb4e3a6a5a409cc8792b5addb9a3/Kiosk/App/SwiftExtensions.swift#L43-L56) is currently in the production app.
 //: 
 //: The first thing we need to do is define an extension on `Optional` that applies _only_ to optionals that conform to `Occupiable`.
 extension Optional where Wrapped: Occupiable {
@@ -186,6 +186,6 @@ extension Optional where Wrapped: Occupiable {
 //: 
 //: We've covered a lot of cool stuff today, which wraps up most of our exploration of Swift's features. The next lesson is our last, where we'll cover error handling and get a taste of functional programming. It's gonna be _awesome_.
 //: 
-//: ![Awww yeah.](http://: i.imgur.com/mONiWzj.gif)
+//: ![Awww yeah.](http://i.imgur.com/mONiWzj.gif)
 //: 
 //: If you're looking for something to do in the mean time, explore the Swift standard library and look for other ways to extend existing types and protocols.

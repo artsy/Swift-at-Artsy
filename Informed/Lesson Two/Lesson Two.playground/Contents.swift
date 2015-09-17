@@ -211,7 +211,7 @@ case .Failure(let reason):
 }
 //: The `switch` lets us access the value associated with the `.Failure` case, and bind that value to a local `reason` variable. Really cool!
 //: 
-//: This is a pretty pedagogical example, but you can get a glimpse of the awesomeness of associated objects. We built an [entire network library](https://: github.com/Moya/Moya) using them!
+//: This is a pretty pedagogical example, but you can get a glimpse of the awesomeness of associated objects. We built an [entire network library](https://github.com/Moya/Moya) using them!
 //: 
 //: Phew! That's a lot of stuff. One last thing: tuples. **Tuples** are simple structures – they are multiple values wrapped into a single value, and are defined using parentheses. This is a simple tuple.
 let tuple = ("This is a value", 1)
