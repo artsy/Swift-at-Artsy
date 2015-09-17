@@ -1,8 +1,8 @@
-It's the last session for this set of Learn Swift at Artsy, we're going to break tradition here and move outside of the Playground to look at a real-world project.
+It's the last session for this set of Learn Swift at Artsy, we're going to break tradition here and move outside of the Playground to look at a real-world Xcode project.
 
 ### Overview of last week
 
-In lesson four we re-created a section of the Artsy API with structs and functions. We did this so we could replicate a section of the Artsy iOS app in the Xcode console. We didn't cover too many _new_ things, but instead tried to bring everything together to make a cohesive.
+In lesson four, we re-created a section of the Artsy API with structs and functions. We did this so we could replicate a section of the Artsy iOS app in the Xcode console. We didn't cover too many _new_ things, but instead tried to bring everything together to make a cohesive.
 
 In this class we're going to look at a real project an iOS engineer at Artsy built. Jory didn't know we were going to use this as an example - so it's not a project made up for this lesson. Here's the problem it solves: We want to have different icons for betas, alphas and the app store. Doing this makes it easy to know which version of the app you have installed, when you have multiple installed on a device. So we want to have a way to add some text to an image, basically.
 
@@ -12,7 +12,7 @@ We've always used Playgrounds as a way to write and experiment with our code. Ho
 
 The biggest difference is that now you have to press the play button in Xcode to make the code run, and that code gets separated into different files. OK. Let's grab the code.
 
-Go to [this URL:github.com/jorystiefel/stampicon ](https://github.com/jorystiefel/stampicon/tree/1d5cf93cedc0f58eecfe99d2c6f754dffcee4fb1) - and click "Download ZIP".
+Go to [github.com/jorystiefel/stampicon](https://github.com/jorystiefel/stampicon/tree/1d5cf93cedc0f58eecfe99d2c6f754dffcee4fb1) - and click "Download ZIP".
 
 Open the zip file/folder and let's take a look.
 
@@ -24,13 +24,13 @@ So we have:
 * `LICENSE` which is the project's license
 * `Demo` is a folder with two images inside, I'm willing to bet this is Jory uses to test his app when building.
 * `StampIcon` is a folder with all the source code for the app. If you note in the README he mentions that `NSColor+Hex.swift` and `CGRectExtensions.swift` are not his code.
-* `stampicon.xcodeproj` - The file that represents the project.
+* `stampicon.xcodeproj` - The file that represents the project, this keeps all the Xcode settings in a single place
 
 OK, let's open the `xcodeproj`. It'll probably ask you if you want to update to the latest Swift, you can hit cancel. This was made for Swift 2.0, which is what we're using Xcode is just playing a little joke on us all ;)
 
 ![images/xcode-defualt.png](images/xcode-defualt.png)
 
-OK, so now we have a file browser on the left instead of nothing. This is cool, we can use this to open `main.swift`.
+OK, so now we have a file browser on the left instead of nothing. This is cool, we can use this to open `main.swift` which is the principal file in this app. It does all the work.
 
 ### Main.Swift
 
@@ -152,7 +152,9 @@ default:
 }
 ```
 
-If you remember how a `Bool` can represent on and off, and then an `enum` can be the same kind of idea but with more states. Well `if` represents something being on or off and `switch` represents multiple states.
+If you remember how a `Bool` can represent on and off, and then an `enum` can be the same kind of idea but with more states.
+
+Well, we've been using an `if` to represent something being true or false. Then the equivilent for an enum is a `switch`, which represents multiple exclusive states.
 
 A `switch` has to cover every possible state. So lets look at our example above. We make a switch on our variable `number`. Swift knows that `number` is a Int, so we can check the different types of Ints we know of. In this case, `1` and `2`. We can't just check for those though, because we have to represent _every_ Int. As this is pretty much impossible, we can use a thing called `default` to represent every state we have not covered.
 
@@ -209,10 +211,20 @@ This loop then continues through the rest of the arguments and we should have a 
 
 The rest of the code is relatively simple.
 
-```
+``` swift
 var config = generateConfigFromArguments()
 let stamper = Stamper(config: config)
 stamper.processStamp();
 ```
 
-We take the config, use it to create a `Stamper` struct, and then run a function on the stamper called `processStamp`.
+We take the config, use it to create a `Stamper` struct, and then run a function on the stamper called `processStamp`. You can investigate that one in your own time though!
+
+### Wrap-up
+
+This was real code, used in an app that we use in Artsy. It is simple, readable and was not built for the purposes of being a demo app. You understand production code now. Your next step is looking [at Eidolon](https://github.com/artsy/eidolon) ;)
+
+### Thanks
+
+So first of all, for the people in the room, thanks for giving me 5 hours of your time. I learned a lot from this, and thing I think everyone else has gained a lot from your feedback too.
+
+To people following along, I hope it's been valuable. You can reach out to me on twitter via [@orta](http://twitter.com/orta) or to the Artsy Dev Team via [@ArtsyOpenSource](http://twitter.com/ArtsyOpenSource) - if you don't have a twitter account and you are a developer, I would strongly recommend getting one.
