@@ -4,3 +4,4 @@ This is the lessons guide for the beginners course. It expects no familiarity wi
 - [Lesson Two](Lesson Two/)
 - [Lesson Three](Lesson Three/)
 - [Lesson Four](Lesson Four/)
+- [Lesson Five](Lesson Five/)
