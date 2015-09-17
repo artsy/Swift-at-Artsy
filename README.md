@@ -11,7 +11,7 @@ Pre-requisites: Yosemite, Xcode 7
  1. [Bools - If/Else - Algebra - Enums - Structs](Beginners/Lesson Two)
  1. [Functions, and functions on types](Beginners/Lesson Three)
  1. [Mapping Reality](Beginners/Lesson Four)
- 1. Type Extensions, Operators ( take examples from eidolon )
+ 1. [Stamping an icon](Beginners/Lesson Five)
 
 * Informed
   1. [Tooling / Language Overview - cursory version of vars/ifs/loops](Informed/Lesson One)
