@@ -122,4 +122,4 @@ for number in 0...15 {
     print("This is less than five")
   }
 }
-//: You can also look at the free Stanford Swift Course: https://www.youtube.com/playlist?list=PLxwBNxx9j4PW4sY-wwBwQos3G6Kn3x6xP
+//: You can also look at the free [Stanford Swift Course](https://www.youtube.com/playlist?list=PLxwBNxx9j4PW4sY-wwBwQos3G6Kn3x6xP )
