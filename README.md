@@ -7,7 +7,7 @@ Pre-requisites: Yosemite, Xcode 7
 * needs a pre-install session a few days before.
 
 * Beginners
- 1. [Variables - Strings - If - Loops](Beginners/Lesson One) - [(chinese)](Lesson One/README_ZH.md)
+ 1. [Variables - Strings - If - Loops](Beginners/Lesson One) - [(chinese)](Beginners/Lesson One/README_ZH.md)
  1. [Bools - If/Else - Algebra - Enums - Structs](Beginners/Lesson Two)
  1. [Functions, and functions on types](Beginners/Lesson Three)
  1. [Mapping Reality](Beginners/Lesson Four)
