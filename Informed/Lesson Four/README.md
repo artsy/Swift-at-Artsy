@@ -209,7 +209,7 @@ extension CollectionType where Self: Occupiable { }
 
 This will compile, but due to a limitation in the current Swift compiler, it doesn't actually work. Oh well 😄
 
-OK, so protocol extensions are neat I guess, but they gets _even_ cooler. We can extend an existing type that uses generics, and then constrain the extension to cases where the generic type conforms to a protocol. 
+OK, so protocol extensions are neat I guess, but they get _even_ cooler. We can extend an existing type that uses generics, and then constrain the extension to cases where the generic type conforms to a protocol. 
 
 ಠ_ಠ
 
