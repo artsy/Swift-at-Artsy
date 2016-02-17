@@ -155,6 +155,9 @@ So let's change `b` to be a `var`. We can access these properties and they shoul
 Now let's get weirder. Let's create two new variables assigned to `a` and `b`.
 
 ```swift
+var a2 = a
+var b2 = b
+
 a2.property = "Hello"
 b2.property = "Hello"
 ```
@@ -335,7 +338,7 @@ func doSomething<T>(input: T) -> T {
 
 This is a really silly function – all it does is return what you give it. But it's declaration is interesting. The angle brackets mean that it works on a generic, named `T`. We can name it whatever we want, though. 
 
-The parameter `input` is of type `T`, even though we don't know what that is right now. Also, the function has to return something else of type `T`. We can all this function with nearly anything:
+The parameter `input` is of type `T`, even though we don't know what that is right now. Also, the function has to return something else of type `T`. We can call this function with nearly anything:
 
 ```swift
 doSomething("hi")

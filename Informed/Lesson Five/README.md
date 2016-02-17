@@ -174,7 +174,7 @@ Just like we can force-unwrap an optional, we can force-unwrap the optional retu
 try! inventory.buyItemNamed("shoes", withCreditCard: creditCard)
 ```
 
-The thing is, if an error _is_ thrown, then you app crashes. `try!` is just as dangerous as force unwrapping an optional and should be avoided whenever possible.
+The thing is, if an error _is_ thrown, then your app crashes. `try!` is just as dangerous as force unwrapping an optional and should be avoided whenever possible.
 
 Let's return to our throwing function. It's pretty ugly, eh? All that indenting! Let's rearrange things with `guard` statements. 
 
@@ -214,7 +214,7 @@ mutating func buyItemNamed(name: String, withCreditCard creditCard: CreditCard) 
 
 Super-nice!
 
-One more thing I'd like to mention is the `defer` keyword. This is useful for when we need something to happen when program execution exits a scope, no matter how it exits. `defer` can be used as a sort of `finally` to execute something that must be accomplished no matter what. Let's take a trivial examples. 
+One more thing I'd like to mention is the `defer` keyword. This is useful for when we need something to happen when program execution exits a scope, no matter how it exits. `defer` can be used as a sort of `finally` to execute something that must be accomplished no matter what. Let's take a trivial example. 
 
 ```swift
 mutating func buyItemNamed(name: String, withCreditCard creditCard: CreditCard) throws -> Item {
