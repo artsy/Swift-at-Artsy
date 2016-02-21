@@ -6,7 +6,7 @@
 //: 
 //: ## Closures
 //: 
-//: A "closure" is a difficult term to define precisely because to different people, the term connotes different ideas and different amounts of precision. For _this_ lesson, we're going to define closures as code that is can be referred to and invoked, but that _isn't_ a function.
+//: A "closure" is a difficult term to define precisely because to different people, the term connotes different ideas and different amounts of precision. For _this_ lesson, we're going to define closures as code that can be referred to and invoked, but that _isn't_ a function.
 //: 
 //: Closures have a place in most modern programming languages, even if they're called by a different name. For example, Javascript has anonymous functions.
 //:
@@ -87,11 +87,11 @@ func add(lhs: Int, rhs: Int) -> Int { return lhs + rhs }
 //: 
 //: ## Lazy Loading
 //: 
-//: A _lazy_ variable is one that doesn't have its value set until it is first accessed. That means if it is set to a type that get initialized, that initialization will be delayed until the lazy variable is first read from.
+//: A _lazy_ variable is one that doesn't have its value set until it is first accessed. That means if it is set to a type that gets initialized, that initialization will be delayed until the lazy variable is first read from.
 //: 
 //: This is valuable when you have a resource-intensive thing that shouldn't be created before it's used. For example, an image that takes up a lot of RAM (which is scarce on iPhones), or a complex computation that takes several seconds to execute.
 //: 
-//: (Note: all global variables are lazy to avoid consuming too many at app startup, probably.)
+//: (Note: all global variables are lazy to avoid consuming too many resources at app startup, probably.)
 //: 
 //: Of course, the downside of lazy properties is that they delay execution of code that could be done before its needed. It's a balance that's up to each coder in each circumstance.
 //: 

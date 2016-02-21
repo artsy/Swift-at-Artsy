@@ -18,7 +18,7 @@ A function that throws errors must explicitly be marked as `throws`, otherwise y
 - Avoid overuse of `throw`.
 - Compile-time safety.
 
-Forcing functions to be marked as `throws` lets the compiler verify that the invoking code handle the error somehow. Super-cool!
+Forcing functions to be marked as `throws` lets the compiler verify that the invoking code handles the error somehow. Super-cool!
 
 Another difference between exceptions and Swift's... whatever it's called is that you can throw any type, as long as it conforms to the `ErrorType` protocol. What's in that protocol? Nothing!
 
@@ -363,7 +363,7 @@ input.filter(contains("@"))
 
 The `contains` function returns a function of type `String -> Bool`, which is what our `filter` function wants – cool!
 
-This sort of thing is so common that Swift actually as shorthand syntax.
+This sort of thing is so common that Swift actually has shorthand syntax.
 
 ```swift
 func contains(suspect: Character)(string: String) -> Bool {

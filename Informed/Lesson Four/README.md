@@ -215,7 +215,7 @@ OK, so protocol extensions are neat I guess, but they get _even_ cooler. We can 
 
 That's a lot to unwrap, so let's go over that again. 
 
-Some types work on generics, like our `Stack`. We can define an extension on `Stack` that _only_ works certain stacks. These stacks need to be stacks of something that conforms to another protocol. 
+Some types work on generics, like our `Stack`. We can define an extension on `Stack` that _only_ works for certain stacks. These stacks need to be stacks of something that conforms to another protocol. 
 
 ```swift
 extension Stack where T: Occupiable {
