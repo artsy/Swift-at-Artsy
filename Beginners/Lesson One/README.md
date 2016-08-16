@@ -1,3 +1,5 @@
+(Note: a screen recording of a presentation of this material is [available on YouTube](https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One).)
+
 Hey! So we're going to be looking at Swift from the perspective of learning programming. This means you get to ask awkward questions and I struggle to verbalise concepts that are the programming equivalent of muscle memory. It'll be fun!
 
 To start off we need to get to a point where we can write any code. We're going to assume that you already have a copy of Xcode 7 installed. With that, let's get started!
