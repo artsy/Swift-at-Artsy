@@ -46,6 +46,8 @@ In programming, we want to work with abstractions. So let's make our first varia
 
 Variables are themselves an abstract concept, and it's normal for beginners to take time getting comfortable with them. In essence, a variable is a way to store something in a place that you can refer to later. There are a few good reasons to do this, but the most common one is that we need to refer to the same value more than once. 
 
+On an artist's Artsy page, we show their name more than once. It's useful to be able to store the artists name in a variable _once_ and then refer to that variable multiple times to show the user an artist's page.
+
 We're going to make a simple calculator with 3  variables. What I'd like to do is define a variable called `a` and `b` then add them together to make `c`. This is a simple example, but it's about foundations.
 
 ```swift
@@ -78,9 +80,9 @@ When we're writing code, very often we want to print out some useful information
 
 ```swift
 print(c)
-```
+``` 
 
-With that working, we can use that to start doing some logic. We want to start checking how big our `c` is, and just like in English, we'll use an `if` statement:
+With `print` working, we can start doing some logic. We want to start checking how big our `c` is, and just like in English, we'll use an `if` statement:
 
 ```swift
 if c > 6 {
@@ -89,6 +91,8 @@ if c > 6 {
 ```
 
 Let's unpack what we're seeing here. `if [something]` - what's happening here is that the bit after the `if` is checking to see if `c` is greater than the number (`Int`) `6`. If it is, then it will run the code inside the braces. 
+
+`if` statements are fundamentally about doing some code only under certain circumstances. For example, Artsy only shows the "Inquire on Artwork" button **if** that artwork can be inquired upon. There are lots of different places in our code where it's useful to do something only if a condition is met.
 
 It is common to use a left margin / indentation to indicate that something is inside a braced section. It's not enforced though.
 
@@ -108,7 +112,9 @@ print("Pretty big c you got there.")
 if c > 6 { print("Pretty big c you got there.") }
 ```
 
-We've got one more thing to go over, and that is loops. Loops repeat a section of code. Let's make a nice simple one, again, this reads like English. For _a_ number in _zero to c_. 
+We've got one more thing to go over, and that is loops. Loops repeat a section of code. Computers are really good at doing the same thing over and over, and loops are how programmers tell computers to do that. Repeating code is really useful in the Artsy's artwork pages, specifically in the related artworks section. As programmers, we tell the computer how to add _one_ artwork to the page, and then tell the computer to do that over and over for all the related artworks.
+
+Let's make a nice simple loop, one that reads like English. For _a_ number in _zero to c_. 
 
 ```swift
 for number in 0...c {
