@@ -7,13 +7,13 @@ import Foundation
 * We can make a named reference to a number, or a collection of characters - these are called variables. In swift we write that as `var something = 1`.
 * We can do logic on these variable by using `if` statements. They let us execute code inside some brackets only when the code inside the `if` is true.
 * We looked at using `print("thing")` to send text to a user of the program.
-* Then we looked at `for` loops, as a way of running code within brackets multiple times, or as a way of running through a collection of items.
+* Then we looked at `for in` loops, as a way of running code within brackets multiple times, or as a way of running through a collection of items.
 
 So the main topic we're going to cover today is logic and then we'll look at types.
 
 ### Bools
 
-In the last lesson we used a lot of variables. A variable is a way in which we could label something that can change. The variables we used were numbers (`Int`s) or collections of characters (`String`s). What about when a variable should only be a certain type of data. Let's look at an on/off value (`Bool`). These are pretty easy to work with, they can either be `true` or `false`. Lets make some.
+In the last lesson we used a lot of variables. A variable is a way in which we could label something that can change. The variables we used were numbers (`Int`s) or collections of characters (`String`s). What about when a variable should only be a certain type of data. Let's look at an on/off value (`Bool`). These are pretty easy to work with, they can only be either `true` or `false`. Lets make some.
 
 /*: swift
 var isThisExcitingYet = false
@@ -27,7 +27,7 @@ var areYouMean = true
 
 ### Iffy Logic
 
-Ok, we have two variables. These work really nicely with `if` statements.
+Ok, we have two variables. Variables work really nicely with `if` statements.
 
 /*: swift
 var isThisExcitingYet = false
@@ -88,7 +88,7 @@ These few key words give us enough options to map out a lot of really complicate
 
 ### Gates
 
-Anyone know why we call a `true`/`false` switch a `Bool`? They're named after a 19th century mathematician who was totally into algebra. Anyone who has touched electronics will have heard of logic gates. This is the same principal. We want to represent the case of when we're excited and when Andrew WK is in the room. To do this we want to use the AND operator, `&&`.
+Anyone know why we call a `true`/`false` switch a `Bool`? They're named after a 19th century mathematician who was totally into algebra. Anyone who has touched electronics will have heard of logic gates. This is the same principal. We want to represent the case of when we're excited and when Andrew WK is in the room. To do this we want to use the AND operator, named after the AND gate, and symbolized as `&&`.
 
 /*: swift
 var thisReallyIsTheMostExcitingThing = isThisExcitingYet && isAndrewWKAround
@@ -189,7 +189,7 @@ enum ArtworkAvailablility {
 }
 /*:
 
-This acts like a `Bool` in that it can only be one of these four states, it cannot be both for sale and on hold. This is the actual code we use in the [Artsy iOS app](https://github.com/artsy/eigen/blob/master/Artsy/Models/API_Models/Partner_Metadata/Artwork.h#L13-L18), albeit in Objective-C. Same, same.
+This acts like a `Bool` in that it must be exactly one of these four states; for example, it cannot be both for sale and on hold just like a bool can't be both true and false. This is the actual code we use in the [Artsy iOS app](https://github.com/artsy/eigen/blob/master/Artsy/Models/API_Models/Partner_Metadata/Artwork.h#L13-L18), albeit in Objective-C. Same, same.
 
 So let's set it.
 
@@ -217,9 +217,9 @@ An `Artwork` is a _reallllly_ complicated thing that we are going to try and mod
 // Constructing a model of reality
 
 struct Artwork {
-    var name:String;
-    var medium: String;
-    var availability:ArtworkAvailablility;
+    var name: String
+    var medium: String
+    var availability: ArtworkAvailablility
 }
 /*:
 
@@ -249,4 +249,10 @@ In lesson two we have:
 * Done some boolean algebra via `||` and `&&`.
 * Found a way to represent exclusive states using an `enum`
 * Talked about how we can model a concept like an `Artwork` via a `struct`. We built on the swift primitives to create a model that represents something important to our hearts.
+
+If you're keen, try to apply some of the things we learned last week with bools, `if` statements, logic, and `structs`. Here are some questions:
+
+- How might an artwork have an artist? How would you model an `Artist` struct?
+- We saw that enums and bools are similar. Do you think that bools could themselves _be_ an enum? Why or why not?
+- What if an artwork had to have multiple artists? How would that work?
 */
