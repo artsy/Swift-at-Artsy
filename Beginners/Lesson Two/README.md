@@ -1,10 +1,10 @@
-Alright, lesson 2!
+Alright, lesson 2! Note that most of the examples in this lesson come from [real code](https://github.com/artsy/eigen/blob/41b00f6fe497de9e902315104089370dea417017/Artsy/Views/Artwork/ARArtworkActionsView.m#L325) we use in Artsy's app. Neat!
 
 ### Overview of last week
 
 * Any lines beginning with `//` are not classed as code, they're _comments_, and are ignored by the computer.
 * We can make a named reference to a number, or a collection of characters - these are called variables. In swift we write that as `var something = 1`.
-* We can do logic on these variable by using `if` statements. They let us execute code inside some brackets only when the code inside the `if` is true.
+* We can do logic on these variables by using `if` statements. They let us execute code inside some brackets only when the code inside the `if` is true.
 * We looked at using `print("thing")` to send text to a user of the program.
 * Then we looked at `for in` loops, as a way of running code within brackets multiple times.
 
@@ -134,7 +134,7 @@ var isArtworkPriceKnown = true
 var showPriceLabel = isArtworkForSale && isArtworkPriceKnown
 ```
 
-So now we have a new `Bool` that is only true when the artwork is both for sale _and_ we know its price. Let's try integrate this into our `if` statements.
+So now we have a new `Bool` that is only true when the artwork is both for sale _and_ we know its price. Let's try to integrate this into our `if` statements.
 
 ```swift
 if isArtworkForSale {
@@ -181,9 +181,9 @@ var unlikelyToBuyThis = isArtworkOnHold || (isArtworkForSale == false)
 
 ### Multiple States of Mind
 
-We have a `Bool` and it can represent one of two states. What could we use to represent something that can only something from a finite a number of states. 
+We have a `Bool` and it can represent one of two states. We have numbers and strings that can represent an infinite number of states. What we're looking for is something that can be a switch between a finite number of states.
 
-At first glance when we modelled an Artwork in code, we might think to represent the for sale availability as a `Bool`. It's pretty intuitive that an artwork is either sold or not.
+When we modelled our artwork variables above to represent the for sale availability, we used `Bool`s. This makes sense because it's pretty intuitive that an artwork is either sold or not (`true` or `false`).
 
 ```swift
 // Representing Artwork Availability
@@ -239,7 +239,7 @@ if artworkAvailability == .NotForSale {
 }
 ```
 
-Using an `enum` we can represent that something can be one of many states. This comes in handy most when trying to model abstractions that have exclusive states.
+We use an `enum` to represent a variable that can be one of a few different states. This comes in handy most when trying to model abstractions that have exclusive states.
 
 With that, I think we have all we need to try and represent an `Artwork`.
 
@@ -280,12 +280,12 @@ In lesson two we have:
 
 * Expanded our knowledge of primitives to include a `Bool`. Which represents one of two states, on or off, `true` or `false`.
 * Built on `if` to include `else if` and `else` statements. These let us represent a lot of common code flows.
-* Done some boolean algebra via `||` and `&&`.
+* Done some boolean algebra via and (`&&`) and or (`||`).
 * Found a way to represent exclusive states using an `enum`
 * Talked about how we can model a concept like an `Artwork` via a `struct`. We built on the swift primitives to create a model that represents something important to our hearts.
 
 If you're keen, try to apply some of the things we learned last week with bools, `if` statements, logic, and `structs`. Here are some questions:
 
 - How might an artwork have an artist? How would you model an `Artist` struct?
-- We saw that enums and bools are similar. Do you think that bools could themselves _be_ an enum? Why or why not?
+- We saw that enums and bools are similar. Do you think that bools could be built using an enum? Why or why not?
 - What if an artwork had to have multiple artists? How would that work?
