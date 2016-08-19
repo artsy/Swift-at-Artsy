@@ -14,13 +14,13 @@ So the main topic we're going to cover today is logic and then we'll look at typ
 
 In the last lesson we used a lot of variables. A variable is a way in which we could label something that can change. The variables we used were numbers (`Int`s) or collections of characters (`String`s). What about when a variable should only be a certain type of data. Let's look at an on/off value (`Bool`). These are pretty easy to work with, they can only be either `true` or `false`. Lets make some.
 
-``` swift
+```swift
 var isThisExcitingYet = false
 ```
 
 Alright cynic. Let's do something more interesting.
 
-``` swift
+```swift
 var areYouMean = true
 ```
 
@@ -28,9 +28,9 @@ var areYouMean = true
 
 Ok, we have two variables. Variables work really nicely with `if` statements.
 
-``` swift
-var isThisExcitingYet = false
-var areYouMean = true
+```swift
+isThisExcitingYet = false
+areYouMean = true
 
 if isThisExcitingYet {
   print("🎉")
@@ -39,7 +39,7 @@ if isThisExcitingYet {
 
 This will check if it's fun yet, and if so Xcode will print a party popper. We could cheat and instead check if it's false, then we get a free party popper.
 
-``` swift
+```swift
 if isThisExcitingYet == false {
   print("🎉")
 }
@@ -47,7 +47,7 @@ if isThisExcitingYet == false {
 
 However, we can do it right. `if` statements can be powerful. We've been using only the simplest part so far. We're going to look at `else`, which bolts on to an `if` and provides a way of running some code when the `if` fails.
 
-``` swift
+```swift
 // OK, we have a way to protect against boredom.
 
 if isThisExcitingYet {
@@ -59,13 +59,13 @@ if isThisExcitingYet {
 
 So what we're looking at, in plain English: _if something is exciting, show a party popper else recommend a good youtube video_. We can use an `if` and an ` else` statement to represent a very large amount of logic. `if`s have one more thing, that I'd like to go over. Before we do that, we should consider what happens if Andrew WK is in the room.
 
-``` swift
+```swift
 var isAndrewWKAround = false
 ```
 
 Well, he would have an important impact on everyone's exciting-ness. Let's try and represent that in our if statement.
 
-``` swift
+```swift
 // Whoah, Andrew WK?
 
 if isThisExcitingYet {
@@ -89,13 +89,13 @@ These few key words give us enough options to map out a lot of really complicate
 
 Anyone know why we call a `true`/`false` switch a `Bool`? They're named after a 19th century mathematician who was totally into algebra. Anyone who has touched electronics will have heard of logic gates. This is the same principal. We want to represent the case of when we're excited and when Andrew WK is in the room. To do this we want to use the AND operator, named after the AND gate, and symbolized as `&&`.
 
-``` swift
+```swift
 var thisReallyIsTheMostExcitingThing = isThisExcitingYet && isAndrewWKAround
 ```
 
 So now we have a new `Bool` that is only true when it is both exciting and Andrew WK is around. Let's try integrate this into our `if` statements.
 
-``` swift
+```swift
 // Adding in when it's too exciting
 
 if isThisExcitingYet {
@@ -111,7 +111,7 @@ if isThisExcitingYet {
 
 OK, let's pretend Andy is here with us... :(. And, err, that this is now exciting. Bare with me.
 
-``` swift
+```swift
 // Let's change the state of the room
 
 isAndrewWKAround = true
@@ -127,7 +127,7 @@ So, what gives? Shouldn't we be unable to even talk cause we're partying hard? W
 
 OK. So the first `if` is not letting our else get through. This is a good time as any to have a think about something as fungible as code quality. In the end code is going to be read significantly more times than it will be written. So it's worth taking the time to make sure it reads really nicely.
 
-``` swift
+```swift
 // A more elegant fix
 
 if thisReallyIsTheMostExcitingThing {
@@ -147,7 +147,7 @@ OK, well what if we want to know if anyone is excited in the room? Yeah, I know,
 
 So let's represent it in a var.
 
-``` swift
+```swift
 // Anyone excited in here?
 
 var isAnyoneExcitedInHere = isThisExcitingYet || isAndrewWKAround
@@ -159,7 +159,7 @@ Now if either side of the `||` is true then the variable `isAnyoneExcitedInHere`
 
 We have a `Bool` and it can represent one of two states. What could we use to represent something that can only something from a finite a number of states. For example, at first glance when we are making an Artwork we might think to represent the for sale availability as a `Bool`. It's pretty intuitive that an artwork is either sold or not.
 
-``` swift
+```swift
 // Representing Artwork Availability
 
 var isArtworkForSale = true
@@ -167,19 +167,19 @@ var isArtworkForSale = true
 
 However, then someone tells you that the artwork is on hold. You think, "ok, lets add a 'isArtworkOnHold'"
 
-``` swift
+```swift
 var isArtworkOnHold = true
 ```
 
 Well now you can have an Artwork that is on hold, and for sale. This is possible, but feels a bit off. Finally you realise that an artwork could be classed as Sold. Ouch, another `Bool`.
 
-``` swift
+```swift
 var isArtworkSold = true
 ```
 
 OK, now we can end up in  a really strange place. You could have competing logic, e.g. it's for sale and it's on hold and it's sold. Not cool. We can wrap these in an `enum`.
 
-``` swift
+```swift
 enum ArtworkAvailablility {
     case NotForSale
     case ForSale
@@ -192,13 +192,13 @@ This acts like a `Bool` in that it must be exactly one of these four states; for
 
 So let's set it.
 
-``` swift
+```swift
 var artworkAvailability = ArtworkAvailablility.NotForSale
 ```
 
 Then dig into it a bit in an `if` statement.
 
-``` swift
+```swift
 if artworkAvailability == .NotForSale {
     print("Not for you.")
 }
@@ -212,7 +212,7 @@ With that, I think we have all we need to try and represent an `Artwork`.
 
 An `Artwork` is a _reallllly_ complicated thing that we are going to try and model. So let's handle a subset of it's information. An `Artwork` should have a name, an availability and a medium. This is the 21st century, having an Artist is so last century. We're going to use a concept called a `struct` to represent this. A `struct` is a way of collecting some language primitives into a single model. By primitives I mean things like `Bool`s, `Int`s and `String`s, things the language gives us to build on top of.
 
-``` swift
+```swift
 // Constructing a model of reality
 
 struct Artwork {
@@ -224,13 +224,13 @@ struct Artwork {
 
 Let's create one. If you write `var something = Artwork(` it will offer to auto-fill in the details.
 
-``` swift
+```swift
 var ortasGIF = Artwork(name: "Orta's GIF", medium: "Graphics Interchange Format", availability: .ForSale)
 ```
 
 We can access any of the variables inside the `ortasGIF` by using the `.` character. So if we wanted the name, we could do `ortasGIF.name`, if we wanted the medium, `ortasGIF.medium`. Let's combine what we know by checking if an artwork is a GIF.
 
-``` swift
+```swift
 if ortasGIF.medium == "Graphics Interchange Format" {
     print("Text is such a boring medium for GIFs")
 }
