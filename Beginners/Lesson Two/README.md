@@ -2,182 +2,217 @@ Alright, lesson 2!
 
 ### Overview of last week
 
-* Any lines beginning with `//` are not classed as code, and are ignored.
+* Any lines beginning with `//` are not classed as code, they're _comments_, and are ignored by the computer.
 * We can make a named reference to a number, or a collection of characters - these are called variables. In swift we write that as `var something = 1`.
 * We can do logic on these variable by using `if` statements. They let us execute code inside some brackets only when the code inside the `if` is true.
 * We looked at using `print("thing")` to send text to a user of the program.
-* Then we looked at `for in` loops, as a way of running code within brackets multiple times, or as a way of running through a collection of items.
+* Then we looked at `for in` loops, as a way of running code within brackets multiple times.
 
-So the main topic we're going to cover today is logic and then we'll look at types.
+So the main topics we're going to cover today are arrays and logic, and then we'll look at types.
+
+### Arrays
+
+Think about the things we learned last week: things in Swift can be integer numbers like `13` or `42`, they can be decimal numbers like `0.5` or `3.14159`, and they can be strings like `"Hello, Artsy!"`. These are called _types_. The next type we're going to cover is the `Array` type.
+
+An array is a special kind of type because it's a _container_ for other things. An array is a list. It can be a list of numbers, or a list of strings, it can be a list of other lists! Let's see what an array of the numbers one through five looks like.
+
+```swift
+[1, 2, 3, 4, 5]
+```
+
+Cool! This is a list of integers. We can make a list of strings, too:
+
+```swift
+["Ash", "Eloy", "Maxim", "Orta", "Sarah"]
+```
+
+That's an array of the Artsy mobile team members' names. Cool! And just like the other types we learned about last week, arrays can be stored in variables. 
+
+```swift
+let names = ["Ash", "Eloy", "Maxim", "Orta", "Sarah"]
+```
+
+Arrays can be used to store anything; in Artsy, we store things like an artist's artworks in an array.
+
+And remember `for in` loops? Where we had `for in 0..<10`? Well we can do `for in` loops with arrays, too:
+
+```swift
+for number in [1, 2, 3, 4, 5] {
+    print(number)
+}
+```
+
+We can combine variables and loops together; remember that a variable can be used anywhere a regular value can be. If we wanted to say "hello" to everyone on Artsy's mobile team, we could write the following:
+
+```swift
+for name in names {
+    print("Hello, \(name)!")
+}
+```
+
+When Artsy shows users the Artist page, we have the artist's artworks stored in a variable. We use `for in` loops to loop over the array containing the those artworks in order to show them to the user. 
+
+To recap: arrays are a special kind of type because they can contain multiple values. But they can be used in variables like normal types, and they can also be used in `for in` loops. Cool!
 
 ### Bools
 
-In the last lesson we used a lot of variables. A variable is a way in which we could label something that can change. The variables we used were numbers (`Int`s) or collections of characters (`String`s). What about when a variable should only be a certain type of data. Let's look at an on/off value (`Bool`). These are pretty easy to work with, they can only be either `true` or `false`. Lets make some.
+When we think of how to store data, we can think about how many values can be stored in a type. There are infinite combinations of letters, so a string variable could contain _anything_. Similar with numbers – the value of a number could be anything! But what about other types, are there any that you can think of that have a _limited_ number of values? 
+
+There is such a type, called a bool (or "boolean"). Bool values are pretty easy to work with because they can only be either `true` or `false`. 
 
 ```swift
-var isThisExcitingYet = false
+var isArtworkForSale = true
+var isArtworkOnHold = false
 ```
 
-Alright cynic. Let's do something more interesting.
-
-```swift
-var areYouMean = true
-```
+Swift knows that a bool can only be true or false, unlike with numbers or strings or arrays, which could be anything. If we tried to store the string `"maybe"` in a bool, Swift wouldn't let us.
 
 ### Iffy Logic
 
 Ok, we have two variables. Variables work really nicely with `if` statements.
 
 ```swift
-isThisExcitingYet = false
-areYouMean = true
-
-if isThisExcitingYet {
-  print("🎉")
+if isArtworkForSale {
+    // Show the "Inquire" button
+    print("Click to Inquire")
 }
 ```
 
-This will check if it's fun yet, and if so Xcode will print a party popper. We could cheat and instead check if it's false, then we get a free party popper.
+This will check if `isArtworkForSale` is true, and if so it would show the inquire button. We can see if an artwork is _not_ for sale, too:
 
 ```swift
-if isThisExcitingYet == false {
-  print("🎉")
+if isArtworkForSale == false {
+    print("Artwork is not inquirable")
 }
 ```
 
-However, we can do it right. `if` statements can be powerful. We've been using only the simplest part so far. We're going to look at `else`, which bolts on to an `if` and provides a way of running some code when the `if` fails.
+`if` statements can be powerful. We've been using only the simplest part so far – next we're going to look at `else`, which bolts on to an `if` and provides a way of running some code when the `if` fails.
 
 ```swift
-// OK, we have a way to protect against boredom.
-
-if isThisExcitingYet {
-  print("🎉")
+if isArtworkForSale {
+    print("Click to Inquire")
 } else {
-  print("Please visit https://www.youtube.com/results?search_query=andrew%20wk")
+    print("Artwork is not inquirable")
 }
 ```
 
-So what we're looking at, in plain English: _if something is exciting, show a party popper else recommend a good youtube video_. We can use an `if` and an ` else` statement to represent a very large amount of logic. `if`s have one more thing, that I'd like to go over. Before we do that, we should consider what happens if Andrew WK is in the room.
+So what we're looking at, in plain English: _if the artwork is for sale, present the inquire button, otherwise say the artwork isn't for sale_. 
+
+We can use an `if` and an ` else` statement to represent very complicated logic, but `if`s can do one more thing. Let's introduce a third variable into our mix. It's possible that an artwork can be on hold, too:
 
 ```swift
-var isAndrewWKAround = false
+isArtworkOnHold = false
 ```
 
-Well, he would have an important impact on everyone's exciting-ness. Let's try and represent that in our if statement.
+Let's update our `if` statements.
 
 ```swift
-// Whoah, Andrew WK?
-
-if isThisExcitingYet {
-  print("🎉")
-} else if isAndrewWKAround {
-  print("Did someone say Party Hard?")
+if isArtworkForSale {
+    print("Click to Inquire")
+} else if isArtworkOnHold {
+    print("Artwork is on hold, try asking nicely")
 } else {
-  print("Please visit https://www.youtube.com/results?search_query=andrew%20wk")
+    print("Artwork is not inquirable")
 }
 ```
 
-This is an `else if` statement. It allows programmers to keep some of the logic in `if` statements sane. Let's try say this in English:
+This is an `else if` statement. It allows programmers to keep some of the logic in `if` statements manageable. Let's try say this in English:
 
-* If it's exciting, party
-* Else if Andrew WK is around, ask if someone said Party Hard
-* Otherwise go to youtube
+* If the artwork is for sale, show the inquire button.
+* Else if it's on hold, tell the user it's on hold.
+* Otherwise, tell the user it's not inquirable.
 
 These few key words give us enough options to map out a lot of really complicated cases. However, it's not the only tool in our belt. We'll talk about Boolean Logic after the break.
 
 ### Gates
 
-Anyone know why we call a `true`/`false` switch a `Bool`? They're named after a 19th century mathematician who was totally into algebra. Anyone who has touched electronics will have heard of logic gates. This is the same principal. We want to represent the case of when we're excited and when Andrew WK is in the room. To do this we want to use the AND operator, named after the AND gate, and symbolized as `&&`.
+Anyone know why we call a `true`/`false` switch a `Bool`? They're named after a 19th century mathematician who was totally into Algebra. Anyone who has touched electronics will have heard of logic gates. Bools operate on the same principal. We want to represent the case when we're having fun _and_ it's Friday. To do this we want to use the AND operator, named after the AND gate, and symbolized as `&&`.
 
 ```swift
-var thisReallyIsTheMostExcitingThing = isThisExcitingYet && isAndrewWKAround
+var isArtworkPriceKnown = true
+
+var showPriceLabel = isArtworkForSale && isArtworkPriceKnown
 ```
 
-So now we have a new `Bool` that is only true when it is both exciting and Andrew WK is around. Let's try integrate this into our `if` statements.
+So now we have a new `Bool` that is only true when the artwork is both for sale _and_ we know its price. Let's try integrate this into our `if` statements.
 
 ```swift
-// Adding in when it's too exciting
-
-if isThisExcitingYet {
-  print("🎉")
-} else if thisReallyIsTheMostExcitingThing {
-  print("No! Time! To! Talk!")
-} else if isAndrewWKAround {
-  print("Did someone say Party Hard?")
+if isArtworkForSale {
+    print("Click to Inquire")
+} else if showPriceLabel {
+    print("The artwork costs a million dollars")
+} else if isArtworkOnHold {
+    print("Artwork is on hold, try asking nicely")
 } else {
-  print("Please visit https://www.youtube.com/results?search_query=andrew%20wk")
+    print("Artwork is not inquirable")
 }
 ```
 
-OK, let's pretend Andy is here with us... :(. And, err, that this is now exciting. Bare with me.
+You might notice that the code above prints "Click to Inquire" instead of the artwork's price. Why? Well, let's interpret our code in English:
+ 
+* If the artwork is for sale, show the inquire button.
+* Else if we have a price, show the price label.
+* Else if it's on hold, tell the user it's on hold.
+* Otherwise, tell the user it's not inquirable.
+
+OK. So the first `if` is not letting our first `else` get through. This is a good time as any to have a think about something as fungible as _code quality_. Programmers spend much more time _reading_ code than _writing_ code. So it's worth taking the time to make sure it reads really nicely.
 
 ```swift
-// Let's change the state of the room
-
-isAndrewWKAround = true
-isThisExcitingYet = true
-```
-
-So, what gives? Shouldn't we be unable to even talk cause we're partying hard? Well not yet. Let's break this into English:
-
-* If it's exciting, party
-* Else if Andrew WK is around and it's exciting, we become too busy partying
-* Else if Andrew WK is around, ask if someone said Party Hard
-* Otherwise go to youtube
-
-OK. So the first `if` is not letting our else get through. This is a good time as any to have a think about something as fungible as code quality. In the end code is going to be read significantly more times than it will be written. So it's worth taking the time to make sure it reads really nicely.
-
-```swift
-// A more elegant fix
-
-if thisReallyIsTheMostExcitingThing {
-  print("No! Time! To! Talk!")
-} else if isThisExcitingYet {
-  print("🎉")
-} else if isAndrewWKAround {
-  print("Did someone say Party Hard?")
+if isArtworkForSale {
+    print("Click to Inquire")
+    
+    if showPriceLabel {
+        print("The artwork costs a million dollars")
+    } else if isArtworkOnHold {
+        print("Artwork is on hold, try asking nicely")
+    } 
 } else {
-  print("Please visit https://www.youtube.com/results?search_query=andrew%20wk")
+    print("Artwork is not inquirable")
 }
 ```
 
-OK, well what if we want to know if anyone is excited in the room? Yeah, I know, we're stretching this. Well, right now there's all of us, and Andrew. In order to answer this we are wondering "Am I excited, or is Andrew WK in the room?" ( He's always excited BTW. )
-
-![Giphy](http://media0.giphy.com/media/u9JFWbnYI1Jo4/giphy.gif)
-
-So let's represent it in a var.
+We can also have code that checks if something _or_ something else is true.
 
 ```swift
-// Anyone excited in here?
-
-var isAnyoneExcitedInHere = isThisExcitingYet || isAndrewWKAround
+var unlikelyToBuyThis = isArtworkOnHold || (isArtworkForSale == false)
 ```
 
-Now if either side of the `||` is true then the variable `isAnyoneExcitedInHere` is true. With just `||`, `&&` and our `if`, `if else` and `else` statements we can basically map any boolean logic into code.
+`||` is the OR operator, and it's true if either the left or right side are true. You can see how we combine it with comparing to `false`, too.
 
 ### Multiple States of Mind
 
-We have a `Bool` and it can represent one of two states. What could we use to represent something that can only something from a finite a number of states. For example, at first glance when we are making an Artwork we might think to represent the for sale availability as a `Bool`. It's pretty intuitive that an artwork is either sold or not.
+We have a `Bool` and it can represent one of two states. What could we use to represent something that can only something from a finite a number of states. 
+
+At first glance when we modelled an Artwork in code, we might think to represent the for sale availability as a `Bool`. It's pretty intuitive that an artwork is either sold or not.
 
 ```swift
 // Representing Artwork Availability
 
-var isArtworkForSale = true
+isArtworkForSale = true
 ```
 
 However, then someone tells you that the artwork is on hold. You think, "ok, lets add a 'isArtworkOnHold'"
 
 ```swift
-var isArtworkOnHold = true
+isArtworkOnHold = true
 ```
 
-Well now you can have an Artwork that is on hold, and for sale. This is possible, but feels a bit off. Finally you realise that an artwork could be classed as Sold. Ouch, another `Bool`.
+Well now you can have an Artwork that is on hold, and for sale. This is possible, but feels weird. Think about this: using two bools, we could have a situation like this:
+
+```swift
+isArtworkOnHold = true
+isArtworkForSale = false
+```
+
+That doesn't make a lot of sense, how can it be on hold _and_ for sale? Wait, an artwork can also be _sold_. Ouch, another `Bool`:
 
 ```swift
 var isArtworkSold = true
 ```
 
-OK, now we can end up in  a really strange place. You could have competing logic, e.g. it's for sale and it's on hold and it's sold. Not cool. We can wrap these in an `enum`.
+OK, now we can end up in a _really_ strange place. With all these bools, we could end up with competing logic, e.g.: artwork is for sale and it's on hold and it's sold. Not cool. 
+
+The reason this feels weird is because these different states of the artwork are mutually exclusive. Remember how strings and numbers can be any value, but bools can only be `true` or `false`? Just two values. It would be ideal, then, to have some way to represent a finite number of mutually exclusive values. For that, we'll use an enumeration, or `enum`.
 
 ```swift
 enum ArtworkAvailablility {
@@ -188,7 +223,7 @@ enum ArtworkAvailablility {
 }
 ```
 
-This acts like a `Bool` in that it must be exactly one of these four states; for example, it cannot be both for sale and on hold just like a bool can't be both true and false. This is the actual code we use in the [Artsy iOS app](https://github.com/artsy/eigen/blob/master/Artsy/Models/API_Models/Partner_Metadata/Artwork.h#L13-L18), albeit in Objective-C. Same, same.
+This acts like a `Bool` in that it _must_ be exactly one of these four states. For example, it cannot be both for sale and on hold just like a bool can't be both true and false. This is the actual code we use in the [Artsy iOS app](https://github.com/artsy/eigen/blob/master/Artsy/Models/API_Models/Partner_Metadata/Artwork.h#L13-L18), albeit in Objective-C. Same, same.
 
 So let's set it.
 
