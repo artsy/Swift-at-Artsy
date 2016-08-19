@@ -1,7 +1,15 @@
 desc "Generate a Swift playground from markdown"
-task :port do
-  source_path = "Fledgling/Lesson One/README.md"
-  dest = "Fledgling/Lesson One/Fledgling - Lesson One.playground/Contents.swift"
+task :port, :directory do |task, args|
+  dir = args[:directory]
+  abort "You must specify a directory." if dir.nil? || dir.length < 1
+  
+  source_path = "#{dir}/README.md"
+  playground = Dir.glob("#{dir}/*.playground").first
+  
+  puts "Converting from #{source_path}."
+  puts "Overwriting playground at #{playground}."
+  
+  dest = "#{playground}/Contents.swift"
   file = File.read(source_path)
   prefix = "import Foundation\n/*:"
   suffix = "*/"
