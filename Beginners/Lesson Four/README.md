@@ -151,7 +151,7 @@ Great. We're getting there.
 
 #### Partnerships
 
-Let's look at the partner relationship. A Partner in Artsy could be a gallery, museum, auction, fair or more. We don't need to care too much about the [specifics](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), so lets just make a generic `Parter` `struct` that has a name. Note: this needs to go above the `Show` blueprint.
+Let's look at the partner relationship. A Partner in Artsy could be a gallery, museum, auction, fair or more. We don't need to care too much about the [specifics](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), so lets just make a generic `Partner` `struct` that has a name. Note: this needs to go above the `Show` blueprint.
 
 ``` swift
 struct Partner {
@@ -329,7 +329,8 @@ struct ShowPage {
 
 	func drawPage() {
 		self.show.drawInstallationImage()
-
+		self.drawShareButton()
+		self.drawPartnerCallToAction()
 	}
 }
 ```
