@@ -1,7 +1,5 @@
 import Foundation
-/*:TODO: Add link to https://github.com/artsy/eigen/blob/master/Artsy/Views/Artwork/ARArtworkActionsView.m#L325
-
-Alright, lesson 2!
+/*:Alright, lesson 2! Note that most of the examples in this lesson come from [real code](https://github.com/artsy/eigen/blob/41b00f6fe497de9e902315104089370dea417017/Artsy/Views/Artwork/ARArtworkActionsView.m#L325) we use in Artsy's app. Neat!
 
 ### Overview of last week
 
@@ -140,7 +138,7 @@ These few key words give us enough options to map out a lot of really complicate
 
 ### Gates
 
-Anyone know why we call a `true`/`false` switch a `Bool`? They're named after a 19th century mathematician who was totally into Algebra. Anyone who has touched electronics will have heard of logic gates. Bools operate on the same principal. We want to represent the case when we're having fun _and_ it's Friday. To do this we want to use the AND operator, named after the AND gate, and symbolized as `&&`.
+Anyone know why we call a `true`/`false` switch a `Bool`? They're named after a 19th century mathematician who was totally into Algebra. Anyone who has touched electronics will have heard of logic gates. Bools operate on the same principal. We want to represent the case when the artwork is for sale _and_ the artwork price is known. To do this we want to use the AND operator, named after the AND gate, and symbolized as `&&`.
 
 */
 
