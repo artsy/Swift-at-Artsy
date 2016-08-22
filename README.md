@@ -2,7 +2,7 @@
 
 Scope: Swift only, no iOS dev.
 
-Pre-requisites: Xcode 7 (Requires El Capitan)
+Pre-requisites: Xcode 7 (Requires El Capitan) - you can get this from the Mac App Store
 
 * Beginners
  1. [Variables - Strings - If - Loops](Beginners/Lesson One) - [(chinese)](Beginners/Lesson One/README_ZH.md)
