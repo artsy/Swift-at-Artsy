@@ -66,19 +66,64 @@ If you hold `cmd` and click on `print` - you see this:
 print(items: Any..., separator: String = default, terminator: String = default)
 ```
 
-* Show how `print` can be both `print("Hello, World!")` and `print("> ", separator: "", terminator: "")`
-* Cover how that allows you to have more expressive & succinct functions 
+This tells us that the `print` method takes `Any` type of object and the `...` means that it can take as  many as you want to give it. Then it has two more parameters.  `separator: String = default` and `terminator: String = default`. As this is the function definition, not the function, we don't have access to _what_ the default is, just that there is one. 
+
+So let's write our own function to show how it works.
+
+```swift
+func showArtworkDetails(title: String, price:String, showPrice: Bool = true) {
+  print(title)
+  if showPrice {
+    print(price)
+  }
+} 
+``` 
+
+Nearly all of the time you want to show the price, so you would write `showArtworkDetails("My Work", price: "$45")` however, when you don't want to show the price, you can add an extra parameter to override the default: `showArtworkDetails("My Work", price: "$45", showPrice: false)`.
+
+So default parameters can help you set the common case parameters, but let people change them if they choose. So in our case, nearly all of the time you want to `print` you want an end of line. However, we want to not have it, so we change the default parameter: `print("> ", separator: "", terminator: "")`.
 
 ### Letting things be
 
-* Talk about `let`
-* Discuss the ideas of mutable vs immutable
+So we want to get user input, `readLine(stripNewline: true)` is the line of code we want. We want to assign this into a variable. However, well, we're going to write `let` instead of `var` which we have done throughout the course so far. We've done that because `var` matches closer to the terminology are using. Real-world though, we strive to use `let` instead of `var` everywhere.
+
+So what's the difference?
+
+This is fine with a `var`:
+
+```swift
+var isArtworkSold = true
+// Something happens
+isArtworkSold = false
+```
+
+This is not fine with a `let`:
+
+```swift
+let isArtworkOnHold = true
+// Something happens
+isArtworkOnHold = false # compiler error
+```
+
+The code that we have wrote on the Artsy iOS app is roughly 40k LOC, when you make an edit anywhere, you want to be sure that those changes only affect the things you want. One way to do this, is to say "this thing can only be changed once."
+
+We call this immutability, in that something cannot mutate. It's a promise that something will not change in the future. If something cannot change then it requires less thinking about. Swift lets you declare that somethign won't change. So in this case, once we have got the user input, we cannot ever change what that variable is. It will always be that string.
 
 ### if let this = that
 
-* Discuss optionals - think of an example that can be true/false and unknown.
-* Cover this use case like this one:
-  - What if you're running inside a place where you cannot use a keyboard?
+So, we want to print out this string. However, it's not that simple. If we look at `readLine`, we see something new:
+
+```swift
+public func readLine(stripNewline stripNewline: Bool = default) -> String?
+```
+
+This returns a `String?` so what is a `String?`? Well, we would call this an `String` `Optional` out loud. It means it _could_ be a `String` but it also could not. We just don't know.
+
+The problem for `readLine` is that it might not always be able to connect to a keyboard input. For example if it is running on a server in the cloud. No keyboards there. So in those cases it would return something that represents nothing: `nil`. 
+
+This is not the same as `false`. You could have a `Bool?` which represents an `Bool Optional`, having three states: `nil`, `true`, `false`. E.g. Is it Banksy's birthday? Well if you know the person you can say yes or no, but if not then you don't know - so it's nil.
+
+So we need to check if we've recieved a `nil` value, 
 
 ### Running our app
 
