@@ -18,6 +18,8 @@ if let answer = response {
 }
 ```
 
+Basically I want to have it say hello, then answer back whatever I told it.
+
 ### Xcode
 
 To get started we need to create a new project. Open up Xcode and you will be presented by this window.
@@ -48,9 +50,21 @@ Separate from `Foundation` is `Cocoa` or `UIKit` - these provide all of the user
 
 This is a perfect point to pitch what CocoaPods is. CocoaPods is a way of using other people' libraries. So, in the Artsy app we have code from Facebook, GitHub and many individual developers from around the world. We use the `import` statement to bring in their code into our apps, and CocoaPods is the glue that makes all that work.
 
-This means we can work on the shoulders of others, and we give back, so others can work from our shoulders.  
+This means we can work on the shoulders of others, and we give back, so others can work from our shoulders.
 
 ### Optional Parameters
+
+OK, so I want it to print `hello world`, which is it doing, but then I want to make it obvious that we expect some user input. I can do this by printing something and _not_ having it add a newline at the end of the print statement.
+
+I initially searched online for a way to do this, and was pleasantly surprised by how you do it. You use the same function, it's just that it has default parameters that I didn't know about.
+
+So how does this work?
+
+If you hold `cmd` and click on `print` - you see this:
+
+```swift
+print(items: Any..., separator: String = default, terminator: String = default)
+```
 
 * Show how `print` can be both `print("Hello, World!")` and `print("> ", separator: "", terminator: "")`
 * Cover how that allows you to have more expressive & succinct functions 
