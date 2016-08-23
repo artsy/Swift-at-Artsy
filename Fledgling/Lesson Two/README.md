@@ -123,14 +123,31 @@ The problem for `readLine` is that it might not always be able to connect to a k
 
 This is not the same as `false`. You could have a `Bool?` which represents an `Bool Optional`, having three states: `nil`, `true`, `false`. E.g. Is it Banksy's birthday? Well if you know the person you can say yes or no, but if not then you don't know - so it's nil.
 
-So we need to check if we've recieved a `nil` value, 
+So we need to check if we've recieved a `nil` value, we do that with an `if let thing = otherthing`, which is a special kind of `if` statement that only is true if `otherthing` is not `nil`. So to be sure we have an answer, we can write:
 
-### Running our app
+```swift
+let response = readLine(stripNewline: true)
+if let answer = response {
+    print("You said: \(answer)");
+}
+```  
 
-* Talk about the idea of compilers, and build artifacts
-* Open terminal
-* Show how to run our app from the terminal
+Or, if you want 
+
+``` swift
+if let answer = readLine(stripNewline: true) {
+    print("You said: \(answer)");
+}
+```
+
+Which will print out whatever someone writes.
+
+To test this, we can run our app again. We can type in the the white box in the bottom right of the screen. 
+
+![images/xcode-run.png](images/xcode-run.png)
 
 ### Expanding out
 
-* Make a simple calculator if there is time.
+* Make a simple calculator of two numbers
+* Think of other examples where you could use an optional?
+* Discuss: Is a codebase simpler by just using `let` instead of `var`?
