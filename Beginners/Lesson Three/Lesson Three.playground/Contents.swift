@@ -1,3 +1,4 @@
+import Foundation
 /*:
 OK, lesson 3!
 

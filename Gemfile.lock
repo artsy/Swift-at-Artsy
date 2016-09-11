@@ -1,5 +1,7 @@
-PATH
-  remote: /Users/orta/dev/ruby/playgroundbook
+GIT
+  remote: https://github.com/orta/playgroundbook.git
+  revision: dcf5cde4c8cb49d3f2968d4140f2fdac98786d49
+  branch: wrap_md
   specs:
     playgroundbook (0.3.0)
       colored (~> 1.2)
