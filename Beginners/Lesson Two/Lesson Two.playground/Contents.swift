@@ -1,5 +1,5 @@
-import Foundation
-/*:Alright, lesson 2! Note that most of the examples in this lesson come from [real code](https://github.com/artsy/eigen/blob/41b00f6fe497de9e902315104089370dea417017/Artsy/Views/Artwork/ARArtworkActionsView.m#L325) we use in Artsy's app. Neat!
+/*:
+Alright, lesson 2! Note that most of the examples in this lesson come from [real code](https://github.com/artsy/eigen/blob/41b00f6fe497de9e902315104089370dea417017/Artsy/Views/Artwork/ARArtworkActionsView.m#L325) we use in Artsy's app. Neat!
 
 ### Overview of last week
 
