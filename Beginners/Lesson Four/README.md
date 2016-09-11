@@ -68,7 +68,7 @@ The Xcode console is a tool at the bottom of the playground, when you use `print
 
 Let's start with the Show object. We'll create a `struct` blueprint to represent the show:
 
-``` swift
+```swift
 struct Show {
     var name: String
     var openingDate: NSDate
@@ -85,7 +85,7 @@ We're going to need a few more things:
 
 We'll go through these incrementally. Let's look at a way to draw the installation image. We can use a function to draw the installation image.
 
-``` swift
+```swift
 func drawInstallationImage() {
 	print("----------------------------------------------")
 	print("")
@@ -99,7 +99,7 @@ func drawInstallationImage() {
 
 This will print out the installation image once we call it. Let's move it on to the Show struct:
 
-``` swift
+```swift
 struct Show {
     var name: String
     var openingDate: NSDate
@@ -119,14 +119,14 @@ struct Show {
 
 This is great. Let's see it in our console. To do that we have to make an instance of our Show. Because we have two dates, this is going to be a bit more complicated than normal. In order to have a date object we have to create a date formatter. A date formatter can create a date from some text.
 
-``` swift
+```swift
 var formatter = NSDateFormatter()
 formatter.dateFormat = "dd-MM-yyyy"
 ```
 
 This says create a `NSDateFormatter` and give it a date format that makes sense. E.g. day-month-year. From here we can use the formatter variable to create dates for us, so let's make the start/end dates.
 
-``` swift
+```swift
 var startDate = formatter.dateFromString("14-04-2015")!
 var endDate = formatter.dateFromString("6-09-2015")!
 ```
@@ -139,7 +139,7 @@ Let's just ignore the `!` at the end for now, it's likely we'll not go over this
 
 Awesome. We have enough to create a `Show` now.
 
-``` swift
+```swift
 var show = Show(name: "Light, Paper, Process: Reinventing Photography", openingDate: startDate, closingDate: endDate)
 ```
 
@@ -153,7 +153,7 @@ Great. We're getting there.
 
 Let's look at the partner relationship. A Partner in Artsy could be a gallery, museum, auction, fair or more. We don't need to care too much about the [specifics](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), so lets just make a generic `Partner` `struct` that has a name. Note: this needs to go above the `Show` blueprint.
 
-``` swift
+```swift
 struct Partner {
 	var name:String;
 }
@@ -161,7 +161,7 @@ struct Partner {
 
 That's all we need for this demo. We want to say that a show has a `Partner` so lets add a var to the `Show`.
 
-``` swift
+```swift
 struct Show {
     var name: String
     var openingDate: NSDate
@@ -172,7 +172,7 @@ struct Show {
 
 This will break our show at the bottom, because it now also needs a `Partner` object. Let's update that.
 
-``` swift
+```swift
 
 var partner = Partner(name: "Yossi Milo Gallery")
 var show = Show(name: "Light, Paper, Process: Reinventing Photography", openingDate: startDate, closingDate: endDate, partner: partner)
@@ -185,7 +185,7 @@ var show = Show(name: "Light, Paper, Process: Reinventing Photography", openingD
 
 Let's take a look at the date range. Let's create a function on the `Show` that creates a date range like we want to see.
 
-``` swift
+```swift
 struct Show {
 	[...]
     func drawShowRange() {
@@ -203,7 +203,7 @@ uh oh! Lots of yellow here.
 
 So, we've been using `var` everywhere, because I want to re-enforce the "variables" idea. However, in Swift the language designers would prefer that you declare if a variable is going to change or not. In this case, we are not making changes to these variables so we should declare them using `let` instead. This tells other programmers that no-one will be making changes to this variable, so it represents only one thing and it will not change for as long as it exists.  
 
-``` swift
+```swift
 struct Show {
 	[...]
     func drawShowRange() {
@@ -217,7 +217,7 @@ struct Show {
 
 Finally let's wrap up our work on the Show by adding an array of `Artwork`s. We can use our `Artwork` declaration from last week.
 
-``` swift
+```swift
 struct Artwork {
     var name: String
     var medium: String
@@ -228,7 +228,7 @@ struct Artwork {
 
 Put this above the `Show` `struct` also. We want to make an array of `Artwork`s. This is pretty simple instead of writing `var artworks: Artwork` like you would for one artwork, you do `var artworks: [Artwork]` which implies it's a collection of `Artwork` objects.
 
-``` swift
+```swift
 struct Show {
     var name: String
     var openingDate: NSDate
@@ -240,14 +240,14 @@ struct Show {
 
 This, again, will break our `Show(` function, so let's make two `Artwork` objects:
 
-``` swift
+```swift
 var defender = Artwork(name: "Defender Argo", medium: "Print", availability: "For Sale", date: "1910")
 var burke = Artwork(name: "Burke & James Rexo", medium: "Print", availability: "For Sale", date: "1910")
 ```
 
 Next up we can fix our `Show(`:
 
-``` swift
+```swift
 var show = Show(name: "Light, Paper, Process: Reinventing Photography", openingDate: startDate, closingDate: endDate, partner: partner, artworks: [defender, burke])
 ```
 
@@ -259,7 +259,7 @@ Let's think in objects. We want an object that represents the Show Page. This is
 
 It's only going to need a `Show`. We'll use it to hold functions. Let's make a `printPage` function. Add this directly after the `Show` declaration.
 
-``` swift
+```swift
 struct ShowPage {
 	var show: Show
 
@@ -271,21 +271,21 @@ struct ShowPage {
 
 Great. Let's make one at the bottom of our playground. Replacing
 
-``` swift
+```swift
 show.drawInstallationImage()
 show.drawShowRange()
 ```
 
 with
 
-``` swift
+```swift
 var showPage = ShowPage(show: show)
 showPage.drawPage()
 ```
 
 This removes all the console output, that's ok. We're going to start building it back up now. We should move the `show.drawInstallationImage()` into the `drawPage` function.
 
-``` swift
+```swift
 struct ShowPage {
 	[...]
 
@@ -299,7 +299,7 @@ Perfect, now it's the role of the `ShowPage` to start piecing together our drawi
 
 Give the `ShowPage` a function to draw the share button`
 
-``` swift
+```swift
 struct ShowPage {
 	[...]
 
@@ -311,7 +311,7 @@ struct ShowPage {
 
 Then call it from the `drawPage` function via `self.drawSharePage()`. Awesome. Next up is the partner name and the follow button. We'll make a function called `drawPartnerCallToAction` to display that.
 
-``` swift
+```swift
 struct ShowPage {
 	[...]
 
@@ -323,7 +323,7 @@ struct ShowPage {
 
 and call that from the `drawPage` with `self.drawPartnerCallToAction()`. By this point your `drawPage` should look like:
 
-``` swift
+```swift
 struct ShowPage {
 	[...]
 
@@ -351,7 +351,7 @@ Yossi Milo Gallery          [ FOLLOW GALLERY ]
 
 Awesome. Next up, we want to print the show name. Append `print(self.show.name)` to the end of your `drawShow` function. The show availability date can be done with `self.show.drawShowRange()`. Finally to wrap up this section we want to add the partner's location. Let's quickly go add this in.
 
-``` swift
+```swift
 struct Show {
     var name: String
     var location: String
@@ -365,13 +365,13 @@ struct Show {
 
 Note that the order is important. I put it next to name, as they feel closely linked, this means we have to add the location to the `Show(` call in the same place. This means our variable looks like:
 
-``` swift
+```swift
 var show = Show(name: "Light, Paper, Process: Reinventing Photography", location: "The J.Paul Getty Museum, LA", openingDate: startDate, closingDate: endDate, partner: partner, artworks: [defender, burke])
 ```
 
 Awesome, add the location to the `drawPage`. It should look like this:
 
-``` swift
+```swift
 struct Show {
 	[...]
     func drawPage() {
@@ -389,7 +389,7 @@ Which prints out our header as expected!
 
 All that's left is showing the artworks. We get to use the `for` statement that we used back in week one. Let's start out by printing the artworks name. Append this to the bottom of `drawPage`.
 
-``` swift
+```swift
 for artwork in self.show.artworks {
     print(artwork.name)
 }
@@ -397,7 +397,7 @@ for artwork in self.show.artworks {
 
 We want to show artworks that have different heights. In order to do this we have to let an `Artwork` declare how many lines tall it is. Let's amend the `Artwork`.
 
-``` swift
+```swift
 struct Artwork {
     var name: String
     var medium: String
@@ -410,7 +410,7 @@ struct Artwork {
 
 This breaks our artwork declarations below. So they should look like:
 
-``` swift
+```swift
 var defender = Artwork(name: "Defender Argo", medium: "Print", availability: "For Sale", date: "1910", height: 3)
 var burke = Artwork(name: "Burke & James Rexo", medium: "Print", availability: "For Sale", date: "1910", height: 5)
 ```
@@ -439,7 +439,7 @@ struct Show {
 
 Now we want to figure out this "draw the middle bit". We want to draw `x` amount of lines, that correspond to the artwork's height. So let's use another for loop. This time using a range of from `0` to the artwork's height.
 
-``` swift
+```swift
 	for _ in 0 ..< artwork.height {
 		print("   [                                     ]")
 	}
@@ -447,7 +447,7 @@ Now we want to figure out this "draw the middle bit". We want to draw `x` amount
 
 We're using the `_` to say that we don't want to do anything with the variable that the `for loop` gives us. With that in you should add an extra line of text before an artwork, and move the artwork name across to add up some polish. `drawPage` should look look like:
 
-``` swift
+```swift
 struct ShowPage {
     var show: Show
 

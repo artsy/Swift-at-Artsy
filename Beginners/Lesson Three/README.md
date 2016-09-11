@@ -22,7 +22,7 @@ Note, there are, like, a million schools of thought, called methodologies or pro
 
 Let's look at what we did last week with a struct:
 
-``` swift
+```swift
 struct Artwork {
     var name: String
     var medium: String
@@ -38,7 +38,7 @@ So far we've cared about variables. Very, very often there's a need to perform c
 
 For example, the concept of "the realization that each random passerby is living a life as vivid and complex as your own" is a lot to say, then when you understand that the word for this concept, "Sonder" exists, there is a single word concept that represents an idea. Functions are a bit like this. We're going to start small, so I'm afraid this example will be a bit contrived, but don't worry, we're going to build it into a simplified version of something [from Eidolon](https://github.com/artsy/eidolon/blob/master/Kiosk/App/Models/Artwork.swift#L111)!
 
-``` swift
+```swift
 func printArtworkSubtitle() {
   print("Artwork name, date")
 }
@@ -60,13 +60,13 @@ Similar to when we created a struct, this is a declaration of something, it is n
 
 Alright. So we've declared that a function exists. We want to be able to use it. We can use it by writing it's name, and adding braces.
 
-``` swift
+```swift
 printArtworkSubtitle()
 ```
 
 This will print out `"Artwork name, date"` - great. We've encapsulated a concept behind a smaller description. Let's start making it useful by providing some inputs. Let's send in an artists name, and a date. To do that we have to change the function declaration to add an artwork name.
 
-``` swift
+```swift
 func printArtworkSubtitle(artworkName: String) {
   print(artworkName)
 }
@@ -74,13 +74,13 @@ func printArtworkSubtitle(artworkName: String) {
 
 We've said that we're going to have a variable inside the function's braces called `artworkName`. We then `print`'d it. We need to make a corresponding change in how we call the function. Now we call it by doing:
 
-``` swift
+```swift
 printArtworkSubtitle("Untitled #23")
 ```
 
 We send in a string to the function. This string internally is know as `artworkName` in the declaration above, and is printed out. However, we just forgot our date. So, let's add that back in.
 
-``` swift
+```swift
 func printArtworkSubtitle(artworkName: String, artworkDate: String) {
     print(artworkName)
     print(artworkDate)
@@ -89,7 +89,7 @@ func printArtworkSubtitle(artworkName: String, artworkDate: String) {
 
 Nothing too odd here, we use commas to separate the different inputs. The odd bit is actually in how we call it.
 
-``` swift
+```swift
 printArtworkSubtitle("Untitled #23", artworkDate: "1985")
 ```
 
@@ -97,7 +97,7 @@ Calling the function also is a comma separated list, but after the 1st thing in 
 
 Knowing what to put in a functions parameters is basically a skill you learn over the years, but as I've done it for years we'll skip to what I want. I know that both of those bits of information can be found on an Artwork. So rather than providing two parameters, we could provide just one. Less, in general, is better. There's nuance there though. To do this we need to include a date string on the Artwork Type.
 
-``` swift
+```swift
 struct Artwork {
     var name: String
     var medium: String
@@ -108,7 +108,7 @@ struct Artwork {
 
 OK. That's a date. Let's change our function to take any instance of an Artwork.
 
-``` swift
+```swift
 func printArtworkSubtitle(artwork: Artwork) {
     print(artwork.name)
     print(artwork.date)
@@ -117,7 +117,7 @@ func printArtworkSubtitle(artwork: Artwork) {
 
 Now, we can create an Artwork. We're going to start trying to represent real data. So we're gonna use my favourite artist, [Glenn Brown](https://www.artsy.net/artist/glenn-brown)
 
-``` swift
+```swift
 // https://www.artsy.net/artwork/glenn-brown-death-disco
 
 var disco = Artwork(name: "Death Disco", medium: "Oil on Panel", availability: .NotForSale, date: "2004")
@@ -125,7 +125,7 @@ var disco = Artwork(name: "Death Disco", medium: "Oil on Panel", availability: .
 
 OK, great. So let's print the subtitle for the artwork.
 
-``` swift
+```swift
 printArtworkSubtitle(disco)
 ```
 
@@ -135,7 +135,7 @@ Let's recap. We've created a function that has an input of an Artwork type. This
 
 So let's get back to our `struct` Artwork. We were talking about how it contains variables. Well, they can also contain functions too. From my perspective, it is the job of the Artwork to describe itself. So we're going to move the `printArtworkSubtitle` function into the Artwork struct.
 
-``` swift
+```swift
 struct Artwork {
     var name: String
     var medium: String
@@ -157,7 +157,7 @@ disco.printArtworkSubtitle(disco)
 
 However Types come with a sneaky variable that can be used to reduce the amount of code we have to write. This variable is called `self`, and when you are using it, it refers to the _instance_ of which the function is attached. So instead of passing in an artwork, we can use the one that comes in implicitly.
 
-``` swift
+```swift
 struct Artwork {
     var name: String
     var medium: String

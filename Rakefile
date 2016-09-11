@@ -1,18 +1,9 @@
-desc "Generate a Swift playground from markdown"
-task :port, :directory do |task, args|
-  dir = args[:directory]
-  abort "You must specify a directory." if dir.nil? || dir.length < 1
+desc "Generate all Swift playgrounds from beginner"
+task :beginner do |task, args|
+  folders = Dir.glob("Beginners/*") - ["Beginners/beginners.yml", "Beginners/README.md"]
 
-  source_path = "#{dir}/README.md"
-  playground = Dir.glob("#{dir}/*.playground").first
-
-  puts "Converting from #{source_path}."
-  puts "Overwriting playground at #{playground}."
-
-  dest = "#{playground}/Contents.swift"
-  file = File.read(source_path)
-  prefix = "import Foundation\n/*:"
-  suffix = "*/"
-  content = file.gsub("```swift", "*/\n").gsub("```", "/*:")
-  File.write(dest, prefix + content + suffix)
+  folders.each do |folder|
+    name = File.basename(folder)
+    `bundle exec playgroundbook wrapper "#{folder}/README.md" "#{name}"`
+  end
 end

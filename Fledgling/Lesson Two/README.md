@@ -134,7 +134,7 @@ if let answer = response {
 
 Or, if you want 
 
-``` swift
+```swift
 if let answer = readLine(stripNewline: true) {
     print("You said: \(answer)");
 }

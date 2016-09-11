@@ -1,0 +1,23 @@
+PATH
+  remote: /Users/orta/dev/ruby/playgroundbook
+  specs:
+    playgroundbook (0.3.0)
+      colored (~> 1.2)
+      cork (~> 0.1)
+      plist (~> 3.2)
+
+GEM
+  specs:
+    colored (1.2)
+    cork (0.2.0)
+      colored (~> 1.2)
+    plist (3.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  playgroundbook!
+
+BUNDLED WITH
+   1.12.5

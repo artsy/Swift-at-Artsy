@@ -1,0 +1,15 @@
+name: Swift at Artsy
+identifier: net.artsy.swift-at-artsy
+resources: assets # Optional
+cover: cover.jpeg # Optional
+deployment_target: ios10.0 # Optional
+imports: # Optional, defaults to UIKit 
+ - UIKit
+chapters:
+  - Lesson One
+  - Lesson Two
+  - Lesson Three
+  - Lesson Four
+  - Lesson Five
+glossary:
+  term: definition

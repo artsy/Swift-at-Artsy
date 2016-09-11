@@ -1,3 +1,4 @@
+/*:
 It's the last session for this set of Learn Swift at Artsy, we're going to break tradition here and move outside of the Playground to look at a real-world Xcode project.
 
 ### Overview of last week
@@ -40,24 +41,26 @@ So this is a command line app. So you would use it in the terminal like so:
 
 In Xcode you can see the output when you hit the play button in the top right, it will say:
 
-```
+/*:
 stampicon by Jory Stiefel
 Usage: stampicon iconfile.png --text "stamp text" --output outputfile.png
 
 Program ended with exit code: 0
-```
+/*:
 
 Basically letting us know that we need to pass some arguments to run the app. Let's see what's going in the code.
 
-```swift
+*/
+
 import Cocoa
-```
+/*:
 
 Cocoa is Apple's toolkit for making Mac apps, we need to use this to have access to some of Apple's objects like `Process` and `NSColor`.
 
 We then have a function:
 
-```swift
+*/
+
 func generateConfigFromArguments() -> StampConfig {
 
     var config = StampConfig()
@@ -69,7 +72,7 @@ func generateConfigFromArguments() -> StampConfig {
     }
 
     for idx in 1..<Process.arguments.count {
-```
+/*:
 
 Which will generate a thing called a `StampConfig`, we already know a lot of this syntax. We've see `for`, `if` and `print`. We don't know what `exit(0)` does, or really what `Process` is.
 
@@ -81,13 +84,14 @@ Which will generate a thing called a `StampConfig`, we already know a lot of thi
 
 Let's try unpack what we're seeing here. Jory is expecting that he would get an array like this:
 
-```
+/*:
 var arguments = ["stampicon", "inputfile.png", "--output", "outputfile.png", "--text", "text to overlay"]
-```
+/*:
 
 So this app want's to look through the arguments and then compare what they find, then use that to generate a configuration object. We'll use the above array as an example.
 
-```swift
+*/
+
 for idx in 1..<Process.arguments.count {
 
     let argument = Process.arguments[idx]
@@ -117,7 +121,7 @@ for idx in 1..<Process.arguments.count {
         continue
     }
 }
-```
+/*:
 
 OK, so, this will loop through a list of numbers going from 1 to the number of arguments minus 1, which in our case is 6 and assign them to `idx` - short for Index. So 1, 2, 3, 4, 5.
 
@@ -125,12 +129,13 @@ Then we take that index, and pull out the string and call that `argument` with `
 
 Then the index is checked to see if it is the first one, and if so take the string and call set that as the `config`'s `inputFile`.
 
-```swift
+*/
+
 if idx == 1 {
     config.inputFile = argument
     continue
 }
-```
+/*:
 
 It then uses `continue` to say, "now go on to the next thing in the `for` loop." So it will start again with `idx` being `2`.
 
@@ -140,7 +145,8 @@ You can make one in the current project by going to the menubar, Hitting `File` 
 
 Then add this.
 
-```swift
+*/
+
 var number = 1
 switch number {
 case 1:
@@ -150,7 +156,7 @@ case 2:
 default:
     print("what?")
 }
-```
+/*:
 
 If you remember how a `Bool` can represent on and off, and then an `enum` can be the same kind of idea but with more states.
 
@@ -160,7 +166,8 @@ A `switch` has to cover every possible state. So lets look at our example above.
 
 We can do the same thing for `String`s.
 
-```swift
+*/
+
 var string = "Hey"
 switch number {
 case "Hello":
@@ -170,12 +177,12 @@ case "Hi":
 default:
     print("what?")
 }
-```
+/*:
 This would print `what?` because we are not covering the string `"Hey"`.
 
 OK, back to the code.
 
-```Swift
+/*:Swift
 switch argument {
 case "--text":
     config.text = Process.arguments[idx+1]
@@ -196,14 +203,15 @@ default:
     continue
 }
 
-```
+/*:
 
 We're going to compare the `argument` var against a bunch of other strings. In this case we the argument is `"--output"` so it will get matched by:
 
-```swift
+*/
+
 case "--output":
     config.outputFile = Process.arguments[idx+1]
-```
+/*:
 
 This is great. This look in the arguments again and pick out the string that is after the current `idx + 1` - which is `outputfile.png`. This is then set as the `config`'s `outputFile`.
 
@@ -211,11 +219,12 @@ This loop then continues through the rest of the arguments and we should have a 
 
 The rest of the code is relatively simple.
 
-```swift
+*/
+
 var config = generateConfigFromArguments()
 let stamper = Stamper(config: config)
 stamper.processStamp();
-```
+/*:
 
 We take the config, use it to create a `Stamper` struct, and then run a function on the stamper called `processStamp`. You can investigate that one in your own time though!
 
@@ -228,3 +237,4 @@ This was real code, used in an app that we use in Artsy. It is simple, readable 
 So first of all, for the people in the room, thanks for giving me 5 hours of your time. I learned a lot from this, and thing I think everyone else has gained a lot from your feedback too.
 
 To people following along, I hope it's been valuable. You can reach out to me on twitter via [@orta](http://twitter.com/orta) or to the Artsy Dev Team via [@ArtsyOpenSource](http://twitter.com/ArtsyOpenSource) - if you don't have a twitter account and you are a developer, I would strongly recommend getting one.
+*/

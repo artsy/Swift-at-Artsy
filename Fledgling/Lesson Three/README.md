@@ -64,7 +64,7 @@ If we use `arc4random() % 3` we get numbers between 0-2, honestly, I don't reall
 
 So now we have a way of getting a random number, lets make a function that returns a random choice:
 
-``` Swift
+```swift
 func randomChoice() -> PlayerChoice {
     switch arc4random() % 3 {
     case 1: return .Rock
@@ -86,7 +86,7 @@ let computerChoice = randomChoice()
 
 Now that they have made their choice, we need to let the player choose. If you recall last week, we went over user input. It looked like this:
 
-``` swift
+```swift
 print("Hello, World!")
 print("> ", separator: "", terminator: "")
 
@@ -98,7 +98,7 @@ if let answer = response {
 
 This is a great place to work from. Let's change some of the wording:
 
-``` swift
+```swift
 print("What do you choose [R]ock, [P]aper, [S]issors?")
 print("> ", separator: "", terminator: "")
 
@@ -115,7 +115,7 @@ then make it lowercase.
 To get that, we get the `lowercaseString` version of our answer, then with ask for the first character
 via `characters.first`. Giving us this:
 
-``` swift
+```swift
 if let answer = response {
     let choice = answer.lowercaseString.characters.first
     print("You said: \(choice)");
@@ -185,7 +185,7 @@ This is the simplest implementation I can think of. We can make it more elegant 
 
 Now we can call this, and detect if it returns a choice.
 
-``` swift
+```swift
 var choice: PlayerChoice?
 while choice == nil {
     choice = getPlayerChoice()
