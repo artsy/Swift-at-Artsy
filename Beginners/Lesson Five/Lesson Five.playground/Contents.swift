@@ -1,3 +1,4 @@
+import Foundation
 /*:
 It's the last session for this set of Learn Swift at Artsy, we're going to break tradition here and move outside of the Playground to look at a real-world Xcode project.
 
